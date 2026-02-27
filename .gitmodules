@@ -1,0 +1,3 @@
+[submodule "themes/kawaii"]
+	path = themes/kawaii
+	url = https://github.com/yuis-ice/hugo-kawaii.git
