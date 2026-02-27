@@ -2,3 +2,6 @@ baseURL: https://lisanicvert.github.io/
 languageCode: en-us
 title: Lisa Nicvert
 theme: ["kawaii"]
+caches:
+  images:
+    dir: :cacheDir/images
