@@ -1,0 +1,60 @@
+{{ define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<div class="kawaii-list-header">
+    <h1 class="kawaii-list-title">{{ .Title }}</h1>
+    {{ if .Content }}
+    <div class="kawaii-list-description">
+        {{ .Content }}
+    </div>
+    {{ end }}
+</div>
+
+<div class="kawaii-posts-grid">
+    {{ range .Pages }}
+    <article class="kawaii-post-card">
+        <div class="kawaii-card-content">
+            {{ if .Params.featured_image }}
+            <div class="kawaii-card-image">
+                <img src="{{ .Params.featured_image | relURL }}" alt="{{ .Title }}" loading="lazy">
+            </div>
+            {{ end }}
+            
+            <div class="kawaii-card-text">
+                <h2 class="kawaii-card-title">
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                </h2>
+                
+                {{ if .Params.description }}
+                <p class="kawaii-card-description">{{ .Params.description }}</p>
+                {{ else }}
+                <p class="kawaii-card-description">{{ .Summary | truncate 120 }}</p>
+                {{ end }}
+                
+                <div class="kawaii-card-meta">
+                    <time class="kawaii-card-date" datetime="{{ .Date.Format "2006-01-02" }}">
+                        {{ .Date.Format "Jan 2, 2006" }}
+                    </time>
+                    
+                    {{ if .Params.tags }}
+                    <div class="kawaii-card-tags">
+                        {{ range first 3 .Params.tags }}
+                        <span class="kawaii-tag kawaii-tag-small">#{{ . }}</span>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </article>
+    {{ end }}
+</div>
+
+{{ if eq .Pages nil }}
+<div class="kawaii-empty-state">
+    <div class="kawaii-empty-icon">📝</div>
+    <h3>No posts yet</h3>
+    <p>This section is waiting for amazing content!</p>
+</div>
+{{ end }}
+{{ end }}

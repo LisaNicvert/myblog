@@ -54,32 +54,31 @@ theme = ["kawaii"]
     title = "Mobile First"
     description = "Responsive design that looks perfect on all devices and screen sizes"
     icon = "📱"
-
-[menu]
-  [[menu.main]]
-    name = "Home"
-    url = "/"
-    weight = 10
   
-  [[menu.main]]
-    name = "Posts"
-    url = "/posts"
-    weight = 20
-  
-  [[menu.main]]
-    name = "Gallery"
-    url = "/gallery"
-    weight = 25
-    
   [[menu.main]]
     name = "About"
     url = "/about"
-    weight = 30
-    
+    weight = 10
+  
   [[menu.main]]
-    name = "Contact"
-    url = "/contact"
+    name = "Publications"
+    url = "/publications"
+    weight = 20
+
+  [[menu.main]]
+    name = "CV"
+    url = "/cv"
+    weight = 30
+
+  [[menu.main]]
+    name = "Software"
+    url = "/software"
     weight = 40
+
+  [[menu.main]]
+    name = "Blog"
+    url = "/posts"
+    weight = 50
 
 [markup]
   [markup.highlight]
