@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="kawaii-hero">
+    <div class="kawaii-hero-content">
+        <h1 class="kawaii-hero-title">
+            {{ .Site.Title }}
+        </h1>
+        <p class="kawaii-hero-subtitle">
+            {{ .Site.Params.description }}
+        </p>
+    </div>
+</div>
+<section class="kawaii-recent-posts">
+    <div class="kawaii-section-header">
+        <h2 class="kawaii-header">Hello!</h2>
+    </div>
+    <p class="kawaii-body">
+        {{ .Content }}
+    </h1>
+</section>
+    
+{{ end }}

@@ -1,0 +1,99 @@
+baseURL = "https://lisanicvert.github.io/"
+languageCode = "en-us"
+title = "Lisa Nicvert"
+theme = ["kawaii"]
+
+[caches]
+  [caches.images]
+    dir = ":cacheDir/images"
+
+[params]
+  description = "ecology, stats & coding"
+  author = "Lisa Nicvert"
+  
+  theme_toggle = true
+  search = true
+  favicon = "/favicon.ico"
+  
+  footer_description = ""
+  copyright = ""
+  
+  [[params.social]]
+    name = "github"
+    url = "https://github.com/LisaNicvert"
+  
+  [[params.social]]
+    name = "bluesky"
+    url = "https://bsky.app/profile/lisanicvert.bsky.social"
+  
+  [[params.social]]
+    name = "linkedin"
+    url = "www.linkedin.com/in/lisa-nicvert-4272181a0"
+  
+  [[params.footer_links]]
+    name = "Documentation"
+    url = "https://github.com/yuis-ice/hugo-kawaii#readme"
+  
+  [[params.footer_links]]
+    name = "Download"
+    url = "https://github.com/yuis-ice/hugo-kawaii"
+  
+  [[params.featured_sections]]
+    title = "Beautiful Design"
+    description = "Experience modern web design with kawaii aesthetics and smooth animations"
+    icon = "✨"
+    link = "/posts"
+  
+  [[params.featured_sections]]
+    title = "Developer Friendly"
+    description = "Built with Hugo, easy to customize and extend for your needs"
+    icon = "⚡"
+    link = "https://github.com/yuis-ice/hugo-kawaii#readme"
+  
+  [[params.featured_sections]]
+    title = "Mobile First"
+    description = "Responsive design that looks perfect on all devices and screen sizes"
+    icon = "📱"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 10
+  
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts"
+    weight = 20
+  
+  [[menu.main]]
+    name = "Gallery"
+    url = "/gallery"
+    weight = 25
+    
+  [[menu.main]]
+    name = "About"
+    url = "/about"
+    weight = 30
+    
+  [[menu.main]]
+    name = "Contact"
+    url = "/contact"
+    weight = 40
+
+[markup]
+  [markup.highlight]
+    style = "github"
+    lineNos = true
+    lineNumbersInTable = false
+    codeFences = true
+    guessSyntax = true
+  
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]
+  section = ["HTML", "RSS"]
