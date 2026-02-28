@@ -1,0 +1,5 @@
+project:
+  execute-dir: project
+format:
+  hugo-md:
+    lib-dir: site_libs
