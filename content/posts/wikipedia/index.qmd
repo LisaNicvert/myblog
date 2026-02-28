@@ -404,7 +404,7 @@ gg <- ggraph(lay) +
   theme_void() +
   theme(plot.margin = margin(t = 10, r = 10, b = 10, l = 10))
 
-girafe(gg)
+gg
 ```
 
 ```{r}
