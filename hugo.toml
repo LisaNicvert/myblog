@@ -96,3 +96,15 @@ theme = ["kawaii"]
   home = ["HTML", "RSS", "JSON"]
   page = ["HTML"]
   section = ["HTML", "RSS"]
+
+[module]
+  [[module.mounts]]
+    source = 'content'
+    target = 'content'
+    excludeFiles = [ "\\.qmd$", "\\.ipynb$", "\\.py$", "posts/renv/*"]
+  [[module.mounts]]
+    source = 'static'
+    target = 'static'
+  [[module.mounts]]
+    source = 'layouts'
+    target = 'layouts'
