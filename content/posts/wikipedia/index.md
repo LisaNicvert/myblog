@@ -4,22 +4,31 @@ description: Post description
 author: Lisa Nicvert
 date: '2026-02-15'
 format: hugo-md
-featured_image: ../posts/wikipedia/images/wikipedia.jpg
+featured_image: wikipedia/images/wikipedia.jpg
 categories:
   - R
   - Wikimedia
 ---
 
 
-<link href="index_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
-<script src="index_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="index_files/libs/d3-bundle-5.16.0/d3-bundle.min.js"></script>
-<script src="index_files/libs/d3-lasso-0.0.5/d3-lasso.min.js"></script>
-<script src="index_files/libs/save-svg-as-png-1.4.17/save-svg-as-png.min.js"></script>
-<script src="index_files/libs/flatbush-4.4.0/flatbush.min.js"></script>
-<link href="index_files/libs/ggiraphjs-0.8.10/ggiraphjs.min.css" rel="stylesheet" />
-<script src="index_files/libs/ggiraphjs-0.8.10/ggiraphjs.min.js"></script>
-<script src="index_files/libs/girafe-binding-0.9.0/girafe.js"></script>
+<link href="index_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+
+<script src="index_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="index_files/libs/d3-bundle-5.16.0/d3-bundle.min.js"></script>
+
+<script src="index_files/libs/d3-lasso-0.0.5/d3-lasso.min.js"></script>
+
+<script src="index_files/libs/save-svg-as-png-1.4.17/save-svg-as-png.min.js"></script>
+
+<script src="index_files/libs/flatbush-4.4.0/flatbush.min.js"></script>
+
+<link href="index_files/libs/ggiraphjs-0.8.10/ggiraphjs.min.css" rel="stylesheet" />
+
+<script src="index_files/libs/ggiraphjs-0.8.10/ggiraphjs.min.js"></script>
+
+<script src="index_files/libs/girafe-binding-0.9.0/girafe.js"></script>
+
 
 
 Rumour has it all articles on Wikipedia eventually lead to Philosophy. This phenomenon even has [its own Wikipedia article](https://en.wikipedia.org/wiki/Wikipedia_philosophy_phenomenon).
