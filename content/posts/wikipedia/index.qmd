@@ -4,7 +4,7 @@ description: "Post description"
 author: "Lisa Nicvert"
 date: "2026-02-15"
 format: hugo-md
-featured_image: "wikipedia/images/wikipedia.jpg"
+featured_image: "images/wikipedia.jpg"
 categories: 
   - R
   - Wikimedia
