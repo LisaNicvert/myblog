@@ -1,15 +1,20 @@
 ---
 title: Do all Wikipedia articles really lead to philosophy?
-description: Post description
+description: A dive into Wikidia's network of articles
 author: Lisa Nicvert
 date: '2026-02-15'
-format: hugo-md
 featured_image: images/wikipedia.jpg
-categories:
+tags:
   - R
   - Wikimedia
 ---
 
+
+-   [Using Wikimedia's API](#using-wikimedias-api)
+-   [Getting a subset of articles](#getting-a-subset-of-articles)
+-   [Traverse links chains](#traverse-links-chains)
+-   [Results](#results)
+-   [Conclusion](#conclusion)
 
 Rumour has it all articles on Wikipedia eventually lead to Philosophy. This phenomenon even has [its own Wikipedia article](https://en.wikipedia.org/wiki/Wikipedia_philosophy_phenomenon).
 

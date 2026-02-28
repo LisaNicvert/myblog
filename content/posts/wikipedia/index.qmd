@@ -1,11 +1,10 @@
 ---
 title: "Do all Wikipedia articles really lead to philosophy?"
-description: "Post description"
+description: "A dive into Wikidia's network of articles"
 author: "Lisa Nicvert"
 date: "2026-02-15"
-format: hugo-md
 featured_image: "images/wikipedia.jpg"
-categories: 
+tags: 
   - R
   - Wikimedia
 ---

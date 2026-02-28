@@ -5,3 +5,5 @@ project:
 format:
   hugo-md:
     lib-dir: site_libs
+    toc: true
+    toc-depth: 2
