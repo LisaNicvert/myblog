@@ -446,6 +446,8 @@ pre code code {
   cursor: pointer;
   transition: var(--kawaii-transition-slow);
   display: flex;
+  width:fit-content;
+  height:3em;
   align-items: center;
   gap: var(--kawaii-spacing-1);
   opacity: 0;
