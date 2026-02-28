@@ -11,17 +11,6 @@ categories:
 ---
 
 
-<link href="index_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
-<script src="index_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="index_files/libs/d3-bundle-5.16.0/d3-bundle.min.js"></script>
-<script src="index_files/libs/d3-lasso-0.0.5/d3-lasso.min.js"></script>
-<script src="index_files/libs/save-svg-as-png-1.4.17/save-svg-as-png.min.js"></script>
-<script src="index_files/libs/flatbush-4.4.0/flatbush.min.js"></script>
-<link href="index_files/libs/ggiraphjs-0.8.10/ggiraphjs.min.css" rel="stylesheet" />
-<script src="index_files/libs/ggiraphjs-0.8.10/ggiraphjs.min.js"></script>
-<script src="index_files/libs/girafe-binding-0.9.0/girafe.js"></script>
-
-
 Rumour has it all articles on Wikipedia eventually lead to Philosophy. This phenomenon even has [its own Wikipedia article](https://en.wikipedia.org/wiki/Wikipedia_philosophy_phenomenon).
 
 So I thought this would be a fun way to combine two of my passions (R and Wikipedia) to put this theory to a test!
@@ -447,3 +436,22 @@ In fact, a vast majority of the articles end up on a loop which passes through p
 ## Conclusion
 
 [^1]: The API is undergoing important changes in 2026 so apologies if any links are not working
+
+
+<link href="index_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+
+<script src="index_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="index_files/libs/d3-bundle-5.16.0/d3-bundle.min.js"></script>
+
+<script src="index_files/libs/d3-lasso-0.0.5/d3-lasso.min.js"></script>
+
+<script src="index_files/libs/save-svg-as-png-1.4.17/save-svg-as-png.min.js"></script>
+
+<script src="index_files/libs/flatbush-4.4.0/flatbush.min.js"></script>
+
+<link href="index_files/libs/ggiraphjs-0.8.10/ggiraphjs.min.css" rel="stylesheet" />
+
+<script src="index_files/libs/ggiraphjs-0.8.10/ggiraphjs.min.js"></script>
+
+<script src="index_files/libs/girafe-binding-0.9.0/girafe.js"></script>
