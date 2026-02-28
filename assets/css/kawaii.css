@@ -327,6 +327,10 @@ code {
   border: 1px solid var(--kawaii-border);
 }
 
+.language-r {
+  color: #1f2937 !important;
+  /* background: var(--kawaii-bg-tertiary) !important;  */
+}
 /* Enhanced Pre Block Styling */
 pre {
   background: var(--kawaii-bg-tertiary);
