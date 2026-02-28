@@ -10,12 +10,6 @@ tags:
 ---
 
 
--   [Using Wikimedia's API](#using-wikimedias-api)
--   [Getting a subset of articles](#getting-a-subset-of-articles)
--   [Traverse links chains](#traverse-links-chains)
--   [Results](#results)
--   [Conclusion](#conclusion)
-
 Rumour has it all articles on Wikipedia eventually lead to Philosophy. This phenomenon even has [its own Wikipedia article](https://en.wikipedia.org/wiki/Wikipedia_philosophy_phenomenon).
 
 So I thought this would be a fun way to combine two of my passions (R and Wikipedia) to put this theory to a test!

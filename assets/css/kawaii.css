@@ -33,6 +33,7 @@
   
   /* Enhanced Text Colors */
   --kawaii-text-primary: #1f2937;
+  --kawaii-text-quarto: #1f2937;
   --kawaii-text-secondary: #374151;
   --kawaii-text-tertiary: #6b7280;
   --kawaii-text-muted: #9ca3af;
@@ -43,6 +44,7 @@
   --kawaii-bg-primary: #ffffff;
   --kawaii-bg-secondary: #f9fafb;
   --kawaii-bg-tertiary: #f3f4f6;
+  --kawaii-bg-quarto: #f3f4f6;
   --kawaii-bg-quaternary: #e5e7eb;
   --kawaii-bg-overlay: rgba(0, 0, 0, 0.05);
   --kawaii-bg-overlay-dark: rgba(0, 0, 0, 0.75);
@@ -172,6 +174,7 @@
   --kawaii-bg-primary: #111827;
   --kawaii-bg-secondary: #1f2937;
   --kawaii-bg-tertiary: #374151;
+  --kawaii-bg-quarto: #b5c2d4ff; 
   --kawaii-bg-quaternary: #4b5563;
   --kawaii-bg-overlay: rgba(255, 255, 255, 0.05);
   --kawaii-bg-overlay-dark: rgba(0, 0, 0, 0.9);
@@ -327,10 +330,6 @@ code {
   border: 1px solid var(--kawaii-border);
 }
 
-.language-r {
-  color: #1f2937 !important;
-  /* background: var(--kawaii-bg-tertiary) !important;  */
-}
 /* Enhanced Pre Block Styling */
 pre {
   background: var(--kawaii-bg-tertiary);
@@ -1801,4 +1800,16 @@ select:focus {
   .kawaii-copy-code {
     display: none !important;
   }
+}
+
+pre[tabindex] {
+  background: var(--kawaii-bg-quarto) !important;
+}
+
+pre[tabindex] code {
+  background-color: transparent;
+  font-family: var(--kawaii-font-mono) !important;
+  font-size: var(--kawaii-text-sm) !important;
+  font-weight: var(--kawaii-font-medium)!important ;
+  color: var(--kawaii-text-quarto) !important;
 }
