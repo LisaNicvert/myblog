@@ -1,1 +1,1 @@
-I am a statistical ecologist **some markdown**
+Here is my personal website with some info abut me and my blog!
