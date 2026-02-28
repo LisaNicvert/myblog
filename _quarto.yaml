@@ -1,5 +1,7 @@
 project:
+  type: hugo
   execute-dir: project
+      
 format:
   hugo-md:
     lib-dir: site_libs
