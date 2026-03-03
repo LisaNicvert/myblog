@@ -1013,6 +1013,8 @@ hr::after {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--kawaii-spacing-xl);
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .kawaii-posts-grid-featured {
