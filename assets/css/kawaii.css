@@ -3,21 +3,16 @@
 /* CSS Custom Properties */
 :root {
   /* Enhanced Color Palette */
-  --kawaii-primary: #ff6b9d;
-  --kawaii-primary-hover: #ff4585;
-  --kawaii-primary-light: #ffb3d1;
-  --kawaii-primary-dark: #e55a8a;
+  --kawaii-primary: #41c0b3;
+  --kawaii-primary-hover: #27a396;
+  --kawaii-primary-light: #97eae1;
+  --kawaii-primary-dark: #21736b;
   
-  --kawaii-secondary: #6366f1;
-  --kawaii-secondary-hover: #4f46e5;
-  --kawaii-secondary-light: #a5b4fc;
-  --kawaii-secondary-dark: #3730a3;
-  
-  --kawaii-accent: #06d6a0;
-  --kawaii-accent-hover: #05c090;
-  --kawaii-accent-light: #6ee7b7;
-  --kawaii-accent-dark: #059669;
-  
+  --kawaii-secondary: #06d6a0;
+  --kawaii-secondary-hover: #05c090;
+  --kawaii-secondary-light: #6ee7b7;
+  --kawaii-secondary-dark: #059669;
+
   --kawaii-warning: #f59e0b;
   --kawaii-warning-hover: #d97706;
   --kawaii-error: #ef4444;
@@ -25,8 +20,7 @@
   --kawaii-info: #3b82f6;
   
   /* Refined Gradients */
-  --kawaii-gradient-primary: linear-gradient(135deg, #ff6b9d 0%, #6366f1 100%);
-  --kawaii-gradient-secondary: linear-gradient(135deg, #06d6a0 0%, #3b82f6 100%);
+  --kawaii-gradient-primary: linear-gradient(135deg, #06d6a0 0%, #4ab8f8 100%);
   --kawaii-gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --kawaii-gradient-warm: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
   --kawaii-gradient-cool: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
@@ -40,10 +34,17 @@
   --kawaii-text-inverse: #ffffff;
   --kawaii-text-link: var(--kawaii-primary);
   
+  /* Kawaii social links */
+  --kawaii-bg-social: #374151;
+  --kawaii-social: #f9fafb;
+
+  /* Kawaii social links */
+  --kawaii-hero-subtitle: #111827;
+
   /* Refined Background Colors */
-  --kawaii-bg-primary: #ffffff;
-  --kawaii-bg-secondary: #f9fafb;
-  --kawaii-bg-tertiary: #f3f4f6;
+  --kawaii-bg-primary: #e9eaed;
+  --kawaii-bg-secondary: #e2e4e8;
+  --kawaii-bg-tertiary: #dadce1;
   --kawaii-bg-quarto: #f3f4f6;
   --kawaii-bg-quaternary: #e5e7eb;
   --kawaii-bg-overlay: rgba(0, 0, 0, 0.05);
@@ -868,7 +869,7 @@ hr::after {
 .kawaii-hero-subtitle {
   font-size: 1.25rem;
   opacity: 0.9;
-  color: var(--kawaii-text-inverse);
+  color: var(--kawaii-hero-subtitle);
 }
 
 .kawaii-hero-cta {
@@ -1359,9 +1360,9 @@ hr::after {
   justify-content: center;
   width: 1.8rem;
   height: 1.8rem;
-  background: var(--kawaii-bg-tertiary);
+  background: var(--kawaii-bg-social);
   border-radius: var(--kawaii-radius-md);
-  color: var(--kawaii-text-primary);
+  color: var(--kawaii-social);
   transition: var(--kawaii-transition);
 }
 
