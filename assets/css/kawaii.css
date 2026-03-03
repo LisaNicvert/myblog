@@ -836,7 +836,11 @@ hr::after {
 
 /* Hero Section */
 .kawaii-hero {
-  background: var(--kawaii-gradient-hero);
+  background-color: var(--kawaii-gradient-hero);
+  background-image: url("/images/img.jpeg");
+   background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
   color: var(--kawaii-text-inverse);
   padding: var(--kawaii-spacing-3xl) var(--kawaii-spacing-lg);
   text-align: center;
@@ -855,7 +859,7 @@ hr::after {
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: var(--kawaii-spacing-lg);
-  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+  background: linear-gradient(135deg, #0c001b 0%, #40008e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -864,7 +868,6 @@ hr::after {
 .kawaii-hero-subtitle {
   font-size: 1.25rem;
   opacity: 0.9;
-  margin-bottom: var(--kawaii-spacing-xl);
   color: var(--kawaii-text-inverse);
 }
 
@@ -1345,6 +1348,7 @@ hr::after {
 
 .kawaii-social-links {
   display: flex;
+  justify-content: center;
   gap: var(--kawaii-spacing-sm);
   flex-wrap: wrap;
 }
@@ -1353,8 +1357,8 @@ hr::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 1.8rem;
+  height: 1.8rem;
   background: var(--kawaii-bg-tertiary);
   border-radius: var(--kawaii-radius-md);
   color: var(--kawaii-text-primary);

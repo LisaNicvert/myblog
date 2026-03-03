@@ -19,6 +19,10 @@ theme = ["kawaii"]
   copyright = ""
   
   [[params.social]]
+    name = "mail"
+    url = "mailto:lisa.n@orange.fr"
+
+  [[params.social]]
     name = "github"
     url = "https://github.com/LisaNicvert"
   
@@ -28,7 +32,7 @@ theme = ["kawaii"]
   
   [[params.social]]
     name = "linkedin"
-    url = "www.linkedin.com/in/lisa-nicvert-4272181a0"
+    url = "https://www.linkedin.com/in/lisa-nicvert-4272181a0"
   
   [[params.footer_links]]
     name = "Documentation"
