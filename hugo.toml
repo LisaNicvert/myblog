@@ -60,8 +60,8 @@ theme = ["kawaii"]
     icon = "📱"
   
   [[menu.main]]
-    name = "About"
-    url = "/about"
+    name = "Projects"
+    url = "/projects"
     weight = 10
   
   [[menu.main]]

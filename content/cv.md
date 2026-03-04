@@ -2,6 +2,11 @@
 title: "CV"
 ---
 
+
+Since November 2024, I work as a postdoctoral fellow at FRB-Cesab. Together with the consortium of the [DRAGON project](https://www.fondationbiodiversite.fr/en/the-frb-in-action/programs-and-projects/le-cesab/dragon/), I investigate the response of European dragonflies to anthropogenic pressures through occupancy models.
+
+During my [PhD](/publication/2024-10-24-thesis) (defended in 2024), I developed statistical methods and software tools to analyze ecological networks and community data. In a first part, I extended multivariate methods to study trait matching in ecological networks. Secondly, I tested a new point process model to infer interspecific interactions from camera trap data. Finally, I developed software tools to analyze camera trap data.
+
 ### Education
 * PhD in statistical ecology (2020-2024)  
 _Laboratory of Biometry and Evolutionary Biology (University Lyon 1), Villeurbanne (France)_  <br>

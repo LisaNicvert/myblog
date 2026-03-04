@@ -12,11 +12,7 @@ citation: 'Nicvert, L., Fritz, H., & Dray, S. (2025). Trait matching without tra
 ---
 
 
-This article proposes to use correspondence analysis and reciprocal scaling to analyze interaction networks. 
-These unconstrained ordination methods allow to order species along a latent gradient, 
-which can be interpreted as their latent traits involved in their interactions. 
-This provides a method to investigate trait matching between species, 
-_even when traits are not measured!_
+
 
 The article has been peer-reviewed and recommended by Peer Community In Ecology (Poisot, [2025](https://doi.org/10.24072/pci.ecology.100765)).
 Peer Community In offers an alternative to for-profit publishers for reviewing 
