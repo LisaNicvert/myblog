@@ -5,7 +5,9 @@
     <div class="kawaii-list-header">
         <h1 class="kawaii-list-title">{{ .Title }}</h1>
     </div>
-    {{ .Content }}
+    <div class="kawaii-list-content">
+        {{ .Content }}
+    </div>
     <div class="kawaii-posts-grid">
         {{ range .Pages.ByDate.Reverse }}
         <article class="kawaii-post-card">

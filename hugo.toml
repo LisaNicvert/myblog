@@ -105,7 +105,7 @@ theme = ["kawaii"]
   [[module.mounts]]
     source = 'content'
     target = 'content'
-    excludeFiles = [ "\\.qmd$", "\\.ipynb$", "\\.py$", "posts/renv/*"]
+    files = [ "! \\.qmd$", "! \\.ipynb$", "! \\.py$", "! posts/renv/*"]
   [[module.mounts]]
     source = 'static'
     target = 'static'

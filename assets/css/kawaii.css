@@ -1288,7 +1288,12 @@ hr::after {
 }
 
 .kawaii-list {
-  margin: 0em 5em;
+  padding: var(--kawaii-spacing-3xl) var(--kawaii-spacing-lg);
+}
+
+.kawaii-list-content {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 /* Empty State */
