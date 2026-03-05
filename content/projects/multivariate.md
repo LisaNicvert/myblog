@@ -3,7 +3,8 @@ title: Multivariate analyses of interaction networks
 description: Correspondence analyses to infer interaction niches and trait matching
 featured_image: images/multivariate.jpg
 institution: LBBE
-project_date: 2020-present
+date: "2020-01-01"
+project_end: "present"
 ---
 
 In a first axis, I use multivariate methods to analyze bird-plants frugivory networks. 

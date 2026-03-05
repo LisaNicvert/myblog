@@ -3,7 +3,8 @@ title: "Attraction-repulsion inference in camera traps"
 description: "Using a point process to infer interactions"
 featured_image: images/hawkes.jpg
 institution: LBBE
-project_date: 2020-2024
+date: "2020-01-01"
+project_end: 2024
 ---
 
 This article models species occurrences at camera traps as a multivariate Hawkes process (MHP). The MHP allows to derive interaction functions between species pairs, where the intensity of interaction is a function of the time elapsed since the first species' occurrence. In our framework, these interactions can be positive or negative, are asymmetrical and non-parametric.
