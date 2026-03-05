@@ -14,7 +14,7 @@
                         <p style="text-indent: 2em;">{{ replaceRE `(Nicvert Lisa)` `<strong>$1</strong>` .author | safeHTML }}  ({{ .year }}). 
                             {{ .title }}. 
                             {{ if .journal }}
-                                {{ .journal }}, {{ .volume }}({{ .number }}){{ if .pages }}, {{ .pages }}.{{ end }}.
+                                {{ .journal }}, {{ .volume }}({{ .number }}){{ if .pages }}, {{ .pages }}{{ end }}.
                             {{ else if .publisher }}
                                 {{ .publisher }}.
                             {{ end }}
