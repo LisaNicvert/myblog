@@ -32,10 +32,21 @@
                 {{ end }}
                 
                 <div class="kawaii-card-meta">
+                    {{ if .Params.institution }}
+                        <div class="kawaii-card-date">
+                            {{ .Params.institution }}
+                        </div>
+                    {{ end }}
+                    {{ if .Params.project_date }}
+                        <div class="kawaii-card-date">
+                            {{ .Params.project_date }}
+                        </div>
+                    {{ end }}
+                    {{ if .Params.Date }}
                     <time class="kawaii-card-date" datetime="{{ .Date.Format "2006-01-02" }}">
                         {{ .Date.Format "Jan 2, 2006" }}
                     </time>
-                    
+                    {{ end }}
                     {{ if .Params.tags }}
                     <div class="kawaii-card-tags">
                         {{ range first 3 .Params.tags }}
