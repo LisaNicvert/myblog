@@ -3,7 +3,7 @@
 {{ define "main" }}
     <div class="kawaii-article">
         {{ .Content }}
-        {{ range .Site.Data.publications }}
+        {{ range sort .Site.Data.publications "year" "desc"}}
         <div>
             <h4>{{ .title }}</h4>
             <p>{{ .author }}</p>
