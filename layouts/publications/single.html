@@ -1,0 +1,17 @@
+{{ define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+    <div class="kawaii-article">
+        {{ .Content }}
+        {{ range .Site.Data.publications }}
+        <div>
+            <h4>{{ .title }}</h4>
+            <p>{{ .author }}</p>
+            <p>{{ .year }}, {{ .journal }}, {{ .volume }}({{ .number }}), {{ .pages }}</p>
+            {{ if .doi }}
+            <a href="https://doi.org/{{ .doi }}">DOI</a>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+{{ end }}
