@@ -2,9 +2,10 @@
 title: "Camtrapviz"
 description: 'Shiny app and R package to visualize camera trap data'
 date: 2024-07-08
+featured_image: "images/software/camtrapviz-shinyapp.png"
 ---
 
-!["Overview of the {camtrapviz} interface"](/software/images/camtrapviz-shinyapp.png)
+!["Overview of the {camtrapviz} interface"](/images/software/camtrapviz-shinyapp.png)
 
 ### Aim
 {camtrapviz} is a R and Shiny package to visualize and summarize camera trap data. 
