@@ -1013,8 +1013,6 @@ hr::after {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--kawaii-spacing-xl);
-  margin-left: 20px;
-  margin-right: 20px;
 }
 
 .kawaii-posts-grid-featured {
@@ -1287,6 +1285,10 @@ hr::after {
   color: var(--kawaii-text-secondary);
   max-width: 600px;
   margin: 0 auto;
+}
+
+.kawaii-list {
+  padding: 0rem 5rem;
 }
 
 /* Empty State */
