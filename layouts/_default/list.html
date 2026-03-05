@@ -16,7 +16,7 @@
         <div class="kawaii-card-content">
             {{ if .Params.featured_image }}
             <div class="kawaii-card-image">
-                <img src="{{ .Params.featured_image | relURL }}" alt="{{ .Title }}" loading="lazy">
+                <a href="{{ .Permalink }}"><img src="{{ .Params.featured_image | relURL }}" alt="{{ .Title }}" loading="lazy"></a>
             </div>
             {{ end }}
             
