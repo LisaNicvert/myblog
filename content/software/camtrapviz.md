@@ -30,7 +30,7 @@ can be reproduced (thanks to the {[shinymeta](https://rstudio.github.io/shinymet
 - All species: get diversity and abundance information
 - One species: get activity and detection patterns for selected species
 
-!["{camtrapviz} modules"](/software/images/camtrapviz-modules.png)
+!["{camtrapviz} modules"](/images/software/camtrapviz-modules.png)
 
 ### Resources
 The Shiny application is live [here](https://lbbe-shiny.univ-lyon1.fr/camtrapviz/).
