@@ -2,16 +2,30 @@
 
 {{ define "main" }}
     <div class="kawaii-article">
-        {{ .Content }}
-        {{ range sort .Site.Data.publications "year" "desc"}}
-        <div>
-            <h4>{{ .title }}</h4>
-            <p>{{ .author }}</p>
-            <p>{{ .year }}, {{ .journal }}, {{ .volume }}({{ .number }}), {{ .pages }}</p>
-            {{ if .doi }}
-            <a href="https://doi.org/{{ .doi }}">DOI</a>
+        <header class="kawaii-article-header">
+            <h1 class="kawaii-article-title">{{ .Title }}</h1>
+        </header>
+        <div class="kawaii-content">
+            {{ .Content }}
+            {{ range sort .Site.Data.publications "order" "asc"}}
+                <div>
+                    <h2>{{ .name }}</h2>
+                    {{ range sort .items "year" "desc" }}
+                        <p style="text-indent: 2em;">{{ replaceRE `(Nicvert Lisa)` `<strong>$1</strong>` .author | safeHTML }}  ({{ .year }}). 
+                            {{ .title }}. 
+                            {{ if .journal }}
+                                {{ .journal }}, {{ .volume }}({{ .number }}){{ if .pages }}, {{ .pages }}.{{ end }}.
+                            {{ else if .publisher }}
+                                {{ .publisher }}.
+                            {{ end }}
+                            {{ if .doi }}
+                                <a href="https://doi.org/{{ .doi }}">DOI</a>
+                            {{ end }}
+                        </p>
+                        <p>{{ .note }}</p>
+                    {{ end }}
+                </div>
             {{ end }}
         </div>
-        {{ end }}
     </div>
 {{ end }}
