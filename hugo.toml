@@ -83,6 +83,11 @@ theme = ["kawaii"]
     name = "Blog"
     url = "/posts"
     weight = 50
+  
+  [[menu.main]]
+    name = "About"
+    url = "/about"
+    weight = 60
 
 [markup]
   [markup.highlight]
