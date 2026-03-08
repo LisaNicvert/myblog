@@ -985,6 +985,29 @@ hr::after {
   color: var(--kawaii-text-inverse);
 }
 
+.kawaii-btn-cv {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7em;
+  border-radius: var(--kawaii-radius-lg);
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--kawaii-transition);
+  background: var(--kawaii-gradient-primary);
+  color: var(--kawaii-text-inverse);
+  margin: 1.5em 0;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.kawaii-btn-cv:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--kawaii-shadow-lg);
+  color: var(--kawaii-text-inverse);
+}
+
 .kawaii-btn-secondary {
   background: var(--kawaii-bg-tertiary);
   color: var(--kawaii-text-primary);
