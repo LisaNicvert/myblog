@@ -118,6 +118,9 @@ get_first_link <- function(article_str, return_title = TRUE) {
   # Parse to HTML
   article_html <- read_html(article_str)
 
+  # remove all tables (infobox)
+  xml2::xml_remove(rvest::html_nodes(article_html, "table"))
+
   # Get all links pointing to a wiki
   # (Exclude special pages beginning with xxx: (e.g. Help, Wikipedia:)))
   
@@ -395,13 +398,13 @@ curvature <- ifelse(mutual, 0.5, 0)
 lay <- create_layout(g, "stress",
                      bbox = 10)
 gg <- ggraph(lay) +
-  geom_edge_arc(strength = curvature, color = "grey20") +
+  geom_edge_arc(strength = curvature, color = "grey70") +
   geom_point_interactive(aes(x = x, y = y, size = degree,
                              color = type, tooltip = name), 
                          show.legend = FALSE) +
   scale_size(range = c(1, 3)) +
   scale_color_manual(values = c("start" = "cornflowerblue", 
-                                "none" = "grey20",
+                                "none" = "grey70",
                                 "end" = "darkred")) +
   theme_void() +
   theme(plot.margin = margin(t = 10, r = 10, b = 10, l = 10),
