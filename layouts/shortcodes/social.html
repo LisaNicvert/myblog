@@ -1,0 +1,15 @@
+<ul>
+{{ range .Page.Site.Params.social }}
+    {{ if eq .name "mail" }}
+        <li> <a href="{{ .url }}">Email</a></li>
+    {{ else if eq .name "github" }}
+        <li> <a href="{{ .url }}">GitHub</a></li>
+    {{ else if eq .name "linkedin" }}
+        <li> <a href="{{ .url }}">Linkedin</a></li>
+    {{ else if eq .name "bluesky" }}
+        <li> <a href="{{ .url }}">Bluesky</a></li>
+    {{ else }}
+        <li>{{ .name }}</li>
+    {{ end }}
+{{ end }}
+</ul>

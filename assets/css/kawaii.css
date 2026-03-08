@@ -1313,6 +1313,15 @@ hr::after {
   color: var(--kawaii-text-secondary);
 }
 
+/* Avatar image */
+.mypic {
+  max-width: 175px;
+  border-radius: 50%;
+  padding: 5px;
+  border: 1px solid var(--kawaii-text-primary);
+  margin: auto;
+}
+
 /* Footer */
 .kawaii-footer {
   background: var(--kawaii-bg-secondary);
@@ -1435,6 +1444,17 @@ hr::after {
   50% { transform: scale(1.1); }
 }
 
+/* For profile pic */
+.image-columns {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.image-columns h3:first-child {
+  margin-top: 0;
+}
+
 /* Enhanced Responsive Design */
 @media (max-width: 768px) {
   .kawaii-nav-menu {
@@ -1522,6 +1542,15 @@ hr::after {
   
   .kawaii-article {
     padding: var(--kawaii-spacing-8) var(--kawaii-spacing-4);
+  }
+
+  /* For profile pic (don't display 2 columns) */
+  .image-columns {
+    flex-direction: column;
+  }
+  
+  .mypic {
+    max-width: 80%;
   }
 }
 
