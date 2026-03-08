@@ -7,11 +7,8 @@ date: "2020-01-01"
 project_end: "present"
 ---
 
-In a first axis, I use multivariate methods to analyze bird-plants frugivory networks. 
-These methods provide insights into trait matching and niche-based processes. 
-Case studies suggest that there is a signal of trait matching, but that it is weak in frugivory networks.
+This project, started during my PhD, aims at better understanding rules structuring interactions networks, in particular trait matching. For this, we use methods from the correspondence analysis family, which are well-suited to project a contingency matrix in the multivariate space.
 
-This article proposes to use correspondence analysis and reciprocal scaling to analyze interaction networks. 
-These unconstrained ordination methods allow to order species along a latent gradient, which can be interpreted as their latent traits involved in their interactions. 
-This provides a method to investigate trait matching between species, 
-_even when traits are not measured!_
+A first step was to use simple correspondence analysys (CA) with reciprocal scaling. These unconstrained ordination methods allow to order species along a latent gradient, which can be interpreted as their latent traits involved in their interactions. This provides a method to investigate trait matching between species, _even when traits are not measured!_ These results have been published here.
+
+Then, we investigated constrained ordination methods, Constrained CA (CCA) and double-constrained CA (dc-CA). They allow to incorporate trait into the analysis, to get a measure of matching, partition the variation and project species in a constrained space. These results are available in my PhD thesis, and an article is also in preparation.
