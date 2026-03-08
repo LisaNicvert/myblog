@@ -1315,11 +1315,11 @@ hr::after {
 
 /* Avatar image */
 .mypic {
-  max-width: 175px;
-  border-radius: 50%;
-  padding: 5px;
-  border: 1px solid var(--kawaii-text-primary);
-  margin: auto;
+  max-width: 175px !important;
+  border-radius: 50% !important;
+  padding: 5px !important;
+  border: 1px solid var(--kawaii-text-primary) !important;
+  margin: auto !important;
 }
 
 /* Footer */
