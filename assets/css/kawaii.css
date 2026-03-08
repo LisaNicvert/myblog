@@ -835,6 +835,25 @@ hr::after {
   transition: var(--kawaii-transition);
 }
 
+/* Breadcrumbs */
+.breadcrumb-full, .breadcrumb-short {
+  background: rgba(255, 255, 255, 0.95);
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px var(--kawaii-spacing-6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--kawaii-border);
+}
+
+[data-theme="dark"] .breadcrumb-full, .breadcrumb-short {
+  background: rgba(17, 24, 39, 0.95);
+}
+
+.breadcrumb-full { display: flex; }
+.breadcrumb-short { display: none; }
+
 /* Hero Section */
 .kawaii-hero {
   background-color: var(--kawaii-gradient-hero);
@@ -1465,6 +1484,9 @@ hr::after {
     display: flex;
   }
   
+  .breadcrumb-full { display: none; }
+  .breadcrumb-short { display: flex; }
+
   /* Mobile typography adjustments */
   .kawaii-hero-title {
     font-size: var(--kawaii-text-4xl);

@@ -60,3 +60,17 @@
         </div>
     </nav>
 </header>
+
+{{ if not .IsHome }}
+    <nav aria-label="breadcrumb" class="breadcrumb-full">
+        {{ range .Ancestors.Reverse }}
+            <a href="{{ .Permalink }}">{{ .Title }}</a>&nbsp;→&nbsp;
+        {{ end }}
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </nav>
+    <nav aria-label="breadcrumb" class="breadcrumb-short">
+        {{ with .Parent }}
+        ←&nbsp;<a href="{{ .Permalink }}">{{ .Title }}</a>
+        {{ end }}
+    </nav>
+{{ end }}

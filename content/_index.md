@@ -1,3 +1,7 @@
+---
+title: Lisa Nicvert
+---
+
 ## Hello!
 
 I am a statistical ecologist, currently working as a postdoc at FRB-Cesab with the [DRAGON project](https://www.fondationbiodiversite.fr/en/the-frb-in-action/programs-and-projects/le-cesab/dragon/). 
