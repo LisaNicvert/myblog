@@ -23,4 +23,4 @@ You can reach me with:
 
 All illustrations on this website are originals by me (unless indicated otherwise). 
 
-I also upload some my drawings on [Wikimedia](https://commons.wikimedia.org/wiki/User:Pylea) and also occasionnally contribute to [Phylopic](https://www.phylopic.org/).
+I also upload some my drawings on [Wikimedia](https://commons.wikimedia.org/wiki/User:Pylea) and occasionnally contribute to [Phylopic](https://www.phylopic.org/).
