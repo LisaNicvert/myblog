@@ -43,6 +43,15 @@
                         <time class="kawaii-card-date" datetime="{{ .Date.Format "2006-01-02" }}">
                             {{ .Date.Format "Jan 2, 2006" }}
                         </time>
+                        {{ else if .Params.year }}
+                            <div class="kawaii-card-date">
+                                {{ .Params.year }}
+                            </div>
+                        {{ end }}
+                        {{ if .Params.source }}
+                            <div class="kawaii-card-date">
+                                <a href="{{ .Params.source }}">Source code</a>
+                            </div>
                         {{ end }}
                         {{ if .Params.tags }}
                         <div class="kawaii-card-tags">

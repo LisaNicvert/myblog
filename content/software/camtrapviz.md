@@ -1,14 +1,15 @@
 ---
 title: "Camtrapviz"
 description: 'Shiny app and R package to visualize camera trap data'
-date: 2024-07-08
+year: 2024
+source: https://github.com/LisaNicvert/camtrapviz
 featured_image: "images/software/camtrapviz-shinyapp.png"
 ---
 
 {{< img src="software/camtrapviz-shinyapp.png" alt="Overview of the{camtrapviz} interface" >}}
 
 ### Aim
-{camtrapviz} is a R and Shiny package to visualize and summarize camera trap data. 
+[{camtrapviz}](https://lbbe-shiny.univ-lyon1.fr/camtrapviz/) is a R and Shiny package to visualize and summarize camera trap data. 
 It is intended for camera trap data where species have already been tagged and 
 compiled in tables. 
 
@@ -35,5 +36,4 @@ can be reproduced (thanks to the {[shinymeta](https://rstudio.github.io/shinymet
 ### Resources
 The Shiny application is live [here](https://lbbe-shiny.univ-lyon1.fr/camtrapviz/).
 
-Source code is hosted on [GitHub](https://github.com/LisaNicvert/camtrapviz).
-and the package documentation can be found [here](https://lisanicvert.github.io/camtrapviz/).
+Source code is hosted [here](https://github.com/LisaNicvert/camtrapviz) and the package documentation can be found [here](https://lisanicvert.github.io/camtrapviz/).

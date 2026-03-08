@@ -1,7 +1,8 @@
 ---
 title: "standardizeSnapshot"
 description: 'R package to clean camera trap data.'
-date: 2024-07-08
+year: 2024
+source: https://github.com/SnapshotSafari/standard-merge
 featured_image: "images/software/standardizeSnapshot-workflow.png"
 ---
 
