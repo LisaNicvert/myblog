@@ -23,6 +23,8 @@ library(igraph) # Handle graph object
 library(ggraph) # Plot graph
 library(ggiraph) # Interactive graph
 
+library(htmlwidgets)
+
 basepath <- here("content", "posts", "wikipedia")
 ```
 
@@ -361,6 +363,7 @@ ggplot(end_links_df, aes(x = prop,
   theme_bw() +
   theme(axis.title.y = element_blank())
 ```
+
 Here, 68% of articles from my subset end up on philosophy: that is, they reach a loop on the "Philosophy" article (which loops on itself eventually). But a sizeable portion of articles also end up on "Proposition" or "Meaning (philosophy). So, was this Philosophy thing a bit of an oversell?
 
 The graph below shows the full story. Blue dots show starting articles and red dots end articles. You can hover articles to see their name.
@@ -392,18 +395,19 @@ curvature <- ifelse(mutual, 0.5, 0)
 lay <- create_layout(g, "stress",
                      bbox = 10)
 gg <- ggraph(lay) +
-  geom_edge_arc(strength = curvature) +
+  geom_edge_arc(strength = curvature, color = "grey20") +
   geom_point_interactive(aes(x = x, y = y, size = degree,
                              color = type, tooltip = name), 
                          show.legend = FALSE) +
   scale_size(range = c(1, 3)) +
   scale_color_manual(values = c("start" = "cornflowerblue", 
-                                "none" = "black",
+                                "none" = "grey20",
                                 "end" = "darkred")) +
   theme_void() +
-  theme(plot.margin = margin(t = 10, r = 10, b = 10, l = 10))
+  theme(plot.margin = margin(t = 10, r = 10, b = 10, l = 10),
+        plot.background = element_rect(fill='transparent', color=NA))
 
-gg
+girafe(ggobj = gg, bg = "transparent")
 ```
 
 ```{r}
