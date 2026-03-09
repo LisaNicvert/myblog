@@ -103,10 +103,6 @@
   --kawaii-text-3xl: 1.875rem;   /* 30px */
   --kawaii-text-4xl: 2.25rem;    /* 36px */
   --kawaii-text-5xl: 3rem;       /* 48px */
-  --kawaii-text-6xl: 3.75rem;    /* 60px */
-  --kawaii-text-7xl: 4.5rem;     /* 72px */
-  --kawaii-text-8xl: 6rem;       /* 96px */
-  --kawaii-text-9xl: 8rem;       /* 128px */
   
   /* Line heights */
   --kawaii-leading-none: 1;
@@ -249,24 +245,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { 
-  font-size: var(--kawaii-text-5xl);
+  font-size: var(--kawaii-text-4xl);
   font-weight: var(--kawaii-font-extrabold);
   line-height: var(--kawaii-leading-none);
   letter-spacing: var(--kawaii-tracking-tighter);
 }
 
 h2 { 
-  font-size: var(--kawaii-text-4xl);
-  font-weight: var(--kawaii-font-bold);
-}
-
-h3 { 
   font-size: var(--kawaii-text-3xl);
   font-weight: var(--kawaii-font-bold);
 }
 
-h4 { 
+h3 { 
   font-size: var(--kawaii-text-2xl);
+  font-weight: var(--kawaii-font-bold);
+}
+
+h4 { 
+  font-size: var(--kawaii-text-xl);
   font-weight: var(--kawaii-font-semibold);
 }
 
@@ -330,7 +326,7 @@ figcaption {
 code {
   font-family: var(--kawaii-font-mono);
   background: var(--kawaii-bg-tertiary);
-  padding: var(--kawaii-spacing-1) var(--kawaii-spacing-2);
+  padding: var(--kawaii-spacing-px) var(--kawaii-spacing-px);
   border-radius: var(--kawaii-radius-md);
   font-size: var(--kawaii-text-sm);
   font-weight: var(--kawaii-font-medium);
@@ -504,7 +500,7 @@ blockquote {
 
 blockquote::before {
   content: '"';
-  font-size: var(--kawaii-text-6xl);
+  font-size: var(--kawaii-text-5xl);
   color: var(--kawaii-primary-light);
   position: absolute;
   top: var(--kawaii-spacing-2);
@@ -643,6 +639,7 @@ caption {
 ul, ol {
   margin: var(--kawaii-spacing-4) 0;
   padding-left: var(--kawaii-spacing-8);
+  font-size: var(--kawaii-text-base);
 }
 
 li {
@@ -1530,9 +1527,9 @@ hr::after {
     font-size: var(--kawaii-text-3xl);
   }
   
-  h1 { font-size: var(--kawaii-text-4xl); }
-  h2 { font-size: var(--kawaii-text-3xl); }
-  h3 { font-size: var(--kawaii-text-2xl); }
+  h1 { font-size: var(--kawaii-text-3xl); }
+  h2 { font-size: var(--kawaii-text-2xl); }
+  h3 { font-size: var(--kawaii-text-1xl); }
   
   /* Mobile grid adjustments */
   .kawaii-posts-grid,
@@ -1896,6 +1893,11 @@ select:focus {
   .kawaii-copy-code {
     display: none !important;
   }
+}
+
+pre {
+  padding: var(--kawaii-spacing-2) var(--kawaii-spacing-2) !important;
+  margin-top: 0;
 }
 
 pre[tabindex] {
