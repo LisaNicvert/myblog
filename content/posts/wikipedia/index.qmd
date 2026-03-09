@@ -343,7 +343,7 @@ mean_length <- mean(link_length)
 ggplot() +
   geom_histogram(aes(x = link_length),
                  binwidth = 1,
-                 fill = "darkblue") +
+                 fill = "#8FC4BD") +
   geom_vline(aes(xintercept = mean_length), 
              linetype = "dashed", color = "grey50") +
   ylab("Count") +
@@ -351,7 +351,8 @@ ggplot() +
   scale_y_continuous(expand = expansion(mult = c(0, .1))) +
   theme_bw() +
   theme(plot.background = element_rect(fill = "transparent", color = NA),
-        panel.background = element_rect(fill = "transparent"),
+        panel.background = element_rect(fill = "transparent", 
+                                        color = "grey50", linewidth = 1),
         panel.grid = element_blank(),
         text = element_text(color = "grey70"),
         axis.text = element_text(color = "grey70"),
@@ -384,7 +385,7 @@ end_links_df[end_links_df$article == "Philosophy", ]
 
 ggplot(end_links_df, aes(x = prop,
                          y = reorder(article, prop))) +
-  geom_col(fill = "darkblue") +
+  geom_col(fill = "#8FC4BD") +
   geom_text(aes(label = paste0(prop, "%")), 
                 color = "grey70",
                 hjust = 0, nudge_x = 0.8) +
