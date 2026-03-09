@@ -302,6 +302,13 @@ a:hover {
   text-underline-offset: 3px;
 }
 
+figcaption {
+  font-size: var(--kawaii-text-base);
+  margin-top: var(--kawaii-spacing-5);
+  margin-bottom: var(--kawaii-spacing-10);
+  color: var(--kawaii-text-muted);
+}
+
 /* Enhanced text utilities */
 .kawaii-text-xs { font-size: var(--kawaii-text-xs); }
 .kawaii-text-sm { font-size: var(--kawaii-text-sm); }

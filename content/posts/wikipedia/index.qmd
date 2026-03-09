@@ -1,6 +1,6 @@
 ---
 title: "Do all Wikipedia articles really lead to philosophy?"
-description: "A dive into Wikidia's network of articles"
+description: "Using Wikimedia's API to explore its network of articles"
 author: "Lisa Nicvert"
 date: "2026-02-15"
 featured_image: "images/wikipedia.jpg"
@@ -9,9 +9,11 @@ tags:
   - Wikimedia
 ---
 
+## Introduction
+
 Rumour has it all articles on Wikipedia eventually lead to Philosophy. This phenomenon even has [its own Wikipedia article](https://en.wikipedia.org/wiki/Wikipedia_philosophy_phenomenon). 
 
-So I thought this would be a fun way to combine two of my passions (R and Wikipedia) to put this theory to a test!
+I thought it would be fun to put this theory to a test. Read my findings in the post below!
 
 ```{r}
 #| include: false
@@ -28,11 +30,15 @@ library(htmlwidgets)
 basepath <- here("content", "posts", "wikipedia")
 ```
 
-## Using Wikimedia's API
+## Getting first links
 
-To try this out, I used the [Wikimedia API](https://api.wikimedia.org/wiki/Main_Page)^[The API is undergoing important changes in 2026 so apologies if any links are not working]. This allowed me to query several Wikipedia pages and get their chain of links.
+In this section, I explain how I used the Wikipedia API to get the first links for each page. You can skip directly to the [results](#results) if that's what you're interested in.
 
-To interact wit the API, I use the packages `httr` to query the API, and `jsonlite` to format results.
+### Using Wikimedia's API
+
+To access Wikipedia pages data, I used the [Wikimedia API](https://api.wikimedia.org/wiki/Main_Page)^[The API is undergoing important changes in 2026, so apologies if any links indicated in this post are not working if you read this from the future]. The API allowed me to query several Wikipedia pages, and get the first link for each of them.
+
+To interact wit the API, I used the packages `httr` and `jsonlite` (to query the API and format results).
 
 The code below sets up the basis for querying the API, using the credentials I got from [this page](https://api.wikimedia.org/wiki/Getting_started_with_Wikimedia_APIs). This is not necessary, but gets you more requests ([5000 per hour](https://wikitech.wikimedia.org/wiki/API_Portal/Deprecation#Rate_limits)).
 
@@ -44,19 +50,16 @@ url <- paste0("https://", language, ".wikipedia.org/w/api.php")
 header <- add_headers("Authorization" = paste("Bearer", key))
 ```
 
-## Getting a subset of articles
+### Getting a subset of articles
 
-First, I'm going to query a subset of Wikipedia articles. Here, I chose 100 articles to keep it scalable, and I will limit the link search to 50 downstream articles before ending up on a loop.
+First, I'm going to query a subset of 100 starting Wikipedia articles to test the "philosophy hypothesis". I will also limit the link search to 50 downstream articles before ending up on a loop (but as you'll see later, this limit was never reached).
 
 ```{r}
 n_articles <- 100
 chain_max <- 50
 ```
 
-So let's use the code below to get `r n_articles` random Wikipedia pages: for this I perform a [Query Action](https://www.mediawiki.org/wiki/API:Query#API_documentation) using the [Random module](https://www.mediawiki.org/wiki/API:Random).
-
-I use `httr::GET` to construct the query and use my API credentials (but you could construct the query string from scratch as well: here, it would be ``r paste0(url, "?action=query&format=json&list=random&rnfilterredir=nonredirects&rnnamespace&rnlimit=", n_articles)``).
-To format results to a data.frame, I use `jsonlite::fromJSON`.
+Now, let's get our `r n_articles` random Wikipedia pages: for this, I perform a [Query Action](https://www.mediawiki.org/wiki/API:Query#API_documentation) using the [Random module](https://www.mediawiki.org/wiki/API:Random).
 
 ```{r}
 #| eval: false
@@ -80,6 +83,8 @@ random_pages <- resj$query$random
 saveRDS(random_pages, file = file.path(basepath, "data", "pages.rds"))
 ```
 
+I used `httr::GET` to construct the query string using my API credentials, but you could also construct the query from scratch (here, it would be ``r paste0(url, "?action=query&format=json&list=random&rnfilterredir=nonredirects&rnnamespace&rnlimit=", n_articles)``). Then, I used `jsonlite::fromJSON` to format the results as a data.frame in R.
+
 ```{r}
 #| echo: false
 random_pages <- readRDS(file.path(basepath, "data", "pages.rds"))
@@ -88,22 +93,24 @@ random_pages <- readRDS(file.path(basepath, "data", "pages.rds"))
 Here are a few of these random pages:
 
 ```{r}
-head(random_pages)
+head(random_pages, n = 5)
 ```
 
-## Traverse links chains
+### Traversing links chains
 
-Okay so now the real work begins.
+This section performs the main part of our analysis: hopping from page to page through the first link.
 
-Below, I write a little function to get the first link from the text of a Wikipedia article. A few subtleties (followed from [here](https://en.wikipedia.org/wiki/Wikipedia:Getting_to_Philosophy)) are:
+First, I write a `get_first_link` function to get the first link from the text of a Wikipedia article. A few subtleties (followed from [here](https://en.wikipedia.org/wiki/Wikipedia:Getting_to_Philosophy)) are:
 
-- I get links from paragraphs or bullet lists only (`p` or `ul` elements), to avoid infoboxes and other decorations;
+- I get links from paragraphs or bullet lists only (`p` or `ul` elements, excluding tables), to avoid infoboxes and other decorations;
 - I exclude links between parentheses, to discard languages links.
 
 (Theoretically, I would also have to discard italicized links, but this case seems to be pretty rare and not likely to bias these results so I didn't.)
 
 
 ```{r}
+#| code-fold: true
+
 #' Get first link
 #' 
 #' Get first link from a Wikipedia article
@@ -164,14 +171,12 @@ get_first_link <- function(article_str, return_title = TRUE) {
 }
 ```
 
-Now, for the real bit of work below: for each of the starting articles, I follow the first link, and the next, and the next... Until:
+Next, I iterate over each of the starting articles, following the first link, and the next, and the next... Until:
 
 - I end up on a loop (discovered in the current article or in a previous one)
 - Or I reach the upwards limit of links defined above (`chain_max` = `r chain_max`)
 
-To get the first link, I use the function `get_first_link` defined above on the result of the [Parse Action](https://www.mediawiki.org/wiki/API:Parsing_wikitext) from my initial list of random articles, which gives the full text of the Wikipedia article.
-
-Running the code below takes about 10 minutes in my setup.
+To get  articles' first links, I use my custom `get_first_link` function on the articles' text (obtained through [Parse Actions](https://www.mediawiki.org/wiki/API:Parsing_wikitext)). Running the code below takes about 10 minutes in my setup.
 
 ```{r}
 #| eval: false
@@ -180,8 +185,8 @@ Running the code below takes about 10 minutes in my setup.
 all_links <- vector(mode = "list", length = n_articles)
 unique_links <- c()
 
-for (i in 1:n_articles) {
-  # Get first page
+for (i in 1:n_articles) { # iterate over starting articles
+  # Get starting article
   starting_page <- random_pages$title[i]
   
   message("Traversing links for article ",
@@ -253,16 +258,16 @@ for (i in 1:n_articles) {
 saveRDS(all_links, file = file.path(basepath, "data", "links.rds"))
 ```
 
-
 ```{r}
 #| echo: false
 # Read results
 all_links <- readRDS(file = file.path(basepath, "data", "links.rds"))
 ```
 
-Ultimately, this code produces a list of chains of links from article to article. Each chains stops when a loop has been detected.
+Ultimately, this code produces a list of chains of links from article to article, where each chains stops when a loop has been detected.
 
 ```{r}
+# See the first 3 link chains
 head(all_links, 3)
 ```
 
@@ -270,9 +275,11 @@ head(all_links, 3)
 
 And now, let's get to the part we've all been waiting for: do all articles really lead to "Philosophy"?
 
-First, let's format the results to a network object using the `igraph` package.
+First, I format the results to a network object using the `igraph` package.
 
 ```{r}
+#| code-fold: true
+
 # Format output for network
 nk_list <- lapply(all_links, function(l) {
   cbind(l[1:(length(l)-1)], l[2:length(l)])})
@@ -282,9 +289,11 @@ nk <- do.call("rbind", nk_list)
 g <- igraph::graph_from_edgelist(nk, directed = TRUE)
 ```
 
-Next, reconstruct the chain of links for each starting article (because of the way I coded the query, some articles stop before reaching their actual loop because the loop was explored in another one).
+The next step is th reconstruct the chain of links for each starting article. Because of the way I coded the query, some articles stop before reaching their loop (because the loop was explored from another one), so I simply reconstruct the loops in the code below.
 
 ```{r}
+#| code-fold: true
+
 # Get all starting articles
 starting_nodes <- sapply(all_links, function(l) l[1])
 
@@ -312,11 +321,14 @@ for (i in 1:length(starting_nodes)) {
 }
 ```
 
-First, let's investigate the length of links chains (i.e., the length of links chain before ending up on a loop).
+In our first exploration of the results, let's investigate the length of links chains. This gives us how many articles are visited before entering a loop.
 
 ```{r}
 #| label: chains-length
 #| code-fold: true
+#| fig-cap: "Distribution of articles chain lengths for the 100 random articles."
+#| dev: svg
+#| dev.args: !expr list(bg="transparent")
 
 # Get mean path length (without loop)
 before_loop <- lapply(complete_paths, 
@@ -330,15 +342,22 @@ mean_length <- mean(link_length)
 
 ggplot() +
   geom_histogram(aes(x = link_length),
-                 binwidth = 3) +
+                 binwidth = 1,
+                 fill = "darkblue") +
   geom_vline(aes(xintercept = mean_length), 
-             linetype = "dashed", color = "grey20") +
-  ggtitle("Distribution of list lengths") +
+             linetype = "dashed", color = "grey50") +
   ylab("Count") +
-  xlab("List length") +
+  xlab("Article chains length") +
   scale_y_continuous(expand = expansion(mult = c(0, .1))) +
-  theme_bw()
+  theme_bw() +
+  theme(plot.background = element_rect(fill = "transparent", color = NA),
+        panel.background = element_rect(fill = "transparent"),
+        panel.grid = element_blank(),
+        text = element_text(color = "grey70"),
+        axis.text = element_text(color = "grey70"),
+        axis.ticks = element_line(color = "grey70"))
 ```
+
 
 Here, the mean links chain is `r mean_length`, and doesn't go over `r max(link_length)`.
 
@@ -348,6 +367,9 @@ And for the long-awaited result: Where do articles end up?
 ```{r}
 #| label: articles-end
 #| code-fold: true
+#| fig-cap: "Repartition of ending articles. An article is considered as the end if it eventually loops on itself (and is the first of the loop)."
+#| dev: svg
+#| dev.args: !expr list(bg="transparent")
 
 # Get the ending links for all articles
 list_length <- sapply(complete_paths, length)
@@ -358,18 +380,28 @@ end_links_df <- data.frame(article = names(table(end_links)),
                            prop = as.numeric(table(end_links))/n_articles*100)
 end_links_df$article[end_links_df$article == "List of ecumenical patriarchs of Constantinople"] <- "List of ecumenical patriarchs\nof Constantinople"
 
+end_links_df[end_links_df$article == "Philosophy", ]
+
 ggplot(end_links_df, aes(x = prop,
                          y = reorder(article, prop))) +
-  geom_col() +
+  geom_col(fill = "darkblue") +
+  geom_text(aes(label = paste0(prop, "%")), 
+                color = "grey70",
+                hjust = 0, nudge_x = 0.8) +
   xlab("Proportion (%)") +
-  ggtitle("Ending Wikipedia links") +
-  theme_bw() +
-  theme(axis.title.y = element_blank())
+  theme_void() +
+  scale_x_continuous(expand = expansion(mult = c(0, .1))) +
+  theme(axis.title.y = element_blank()) +
+  theme(plot.background = element_rect(fill = "transparent", color = NA),
+        text = element_text(color = "grey70"),
+        axis.text.y = element_text(color = "grey70"),
+        axis.text.x = element_blank(),
+        axis.ticks = element_blank())
 ```
 
-Here, 68% of articles from my subset end up on philosophy: that is, they reach a loop on the "Philosophy" article (which loops on itself eventually). But a sizeable portion of articles also end up on "Proposition" or "Meaning (philosophy). So, was this Philosophy thing a bit of an oversell?
+Per this graph, 32% of articles from my subset end up on philosophy: that is, they reach a loop on the "Philosophy" article (which loops on itself eventually). But most articles end up on "Meaning (philosophy)", and a sizeable portion also end up on "Proposition". So, was this Philosophy thing a bit of an oversell?
 
-The graph below shows the full story. Blue dots show starting articles and red dots end articles. You can hover articles to see their name.
+The graph below shows the full story: in fact, a vast majority of articles end up on a loop containing "Philosophy". Blue dots show starting articles, and red dots end articles. You can hover articles to see their name.
 
 ```{r}
 #| label: articles-graph
@@ -412,16 +444,27 @@ gg <- ggraph(lay) +
 
 girafe(ggobj = gg, bg = "transparent")
 ```
+<figcaption>Wikipedia's network of first links, starting from 100 random pages (in blue). Red pages represent the end pages (before entering a loop).</figcaption>
 
 ```{r}
 # Number of articles containing "Philosophy"
 n_philo <- sum(sapply(complete_paths, function(p) "Philosophy" %in% p))
+n_philo
 ```
 
-In fact, a vast majority of the articles end up on a loop which passes through philosophy (`r n_philo/n_articles*100`% in my small example, but Wikipedia itself gives 97% in 2016).
+In my small example, `r n_philo/n_articles*100`% of articles reach the "Philosophy" loop (but Wikipedia itself gives 97% in 2016). This loop is reached through 3 main paths. Upon closer inspection of these articles, I'l call them the "psychology" branch (left), the "Logic" branch (top) and the "Science" branch (right).
 
 
 ## Conclusion
+
+It was a fun project that taught me to interact with Wikimedia's API and refreshed my network analyses skills. 
+
+But it also prompts other questions: for instance, what happens in other languages? Can we cluster articles by themes, or how is it different when we consider all links instead of only the first? Hopefully, I'll be able to explore this in a next blog post!
+
+## Source code
+
+You can view the [source code](https://github.com/LisaNicvert/myblog/blob/main/content/posts/wikipedia/index.qmd) for this blog post (embedded in a Quarto document). Check it out if you'd like to know more about the behind-the-scenes!
+
 
 ```{r}
 #| include: false
