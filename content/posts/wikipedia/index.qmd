@@ -289,7 +289,7 @@ nk <- do.call("rbind", nk_list)
 g <- igraph::graph_from_edgelist(nk, directed = TRUE)
 ```
 
-The next step is th reconstruct the chain of links for each starting article. Because of the way I coded the query, some articles stop before reaching their loop (because the loop was explored from another one), so I simply reconstruct the loops in the code below.
+The next step is to reconstruct the chain of links for each starting article. Because of the way I coded the query, some articles stop before reaching their loop (because the loop was explored from another one), so I simply reconstruct the loops in the code below.
 
 ```{r}
 #| code-fold: true
