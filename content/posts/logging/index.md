@@ -103,9 +103,9 @@ log_debug("End analyses")
 
 Here is our logfile:
 
-    DEBUG [2026-03-09 23:53:50] Start script
-    INFO [2026-03-09 23:53:50] res is 42
-    DEBUG [2026-03-09 23:53:50] End analyses
+    DEBUG [2026-03-10 11:55:22] Start script
+    INFO [2026-03-10 11:55:22] res is 42
+    DEBUG [2026-03-10 11:55:22] End analyses
 
 That's it for a basic logger!
 
@@ -129,7 +129,7 @@ log_debug("End analyses")
 
 In the code above with a log level set to `INFO`, all `DEBUG` messages are omitted.
 
-    INFO [2026-03-09 23:53:50] res is 42
+    INFO [2026-03-10 11:55:22] res is 42
 
 ### Logging warnings, errors and messages
 
@@ -156,9 +156,9 @@ log_debug("End analyses")
 
 Now, the certainly the logfile should show the warning?
 
-    DEBUG [2026-03-09 23:53:50] Start script
-    INFO [2026-03-09 23:53:50] res is forty-two
-    DEBUG [2026-03-09 23:53:50] End analyses
+    DEBUG [2026-03-10 11:55:23] Start script
+    INFO [2026-03-10 11:55:23] res is forty-two
+    DEBUG [2026-03-10 11:55:23] End analyses
 
 ... except it doesn't. The logger records only what we tell it to, so we need to explicitly ask to record warnings.
 
@@ -183,10 +183,10 @@ res <- as.numeric(res)
 log_debug("End analyses")
 ```
 
-    DEBUG [2026-03-09 23:42:12] Start script
-    INFO [2026-03-09 23:42:12] res is forty-two
-    WARN [2026-03-09 23:42:12] NAs introduced by coercion
-    DEBUG [2026-03-09 23:42:12] End analyses
+    DEBUG [2026-03-10 11:54:57] Start script
+    INFO [2026-03-10 11:54:57] res is forty-two
+    WARN [2026-03-10 11:54:57] NAs introduced by coercion
+    DEBUG [2026-03-10 11:54:57] End analyses
 
 The same is true for errors and messages, which can be recorded with `log_messages()` and `log_errors()`.
 
@@ -267,18 +267,18 @@ stopCluster(cluster)
 
 Let's see what's in the logfiles:
 
-    [1] "Logger crow_40f4521f6306.log -----"
-    INFO [2026-03-09 23:53:51] Logger for species crow
-    INFO [2026-03-09 23:53:51] Species count: 5
-    [1] "Logger daisy_1ec673160a.log -----"
-    INFO [2026-03-09 23:53:51] Logger for species daisy
-    INFO [2026-03-09 23:53:51] Species count: 6
-    [1] "Logger dragonfly_1bd87c5f6446.log -----"
-    INFO [2026-03-09 23:53:51] Logger for species dragonfly
-    INFO [2026-03-09 23:53:51] Species count: 8
-    [1] "Logger whale_473879a44077.log -----"
-    INFO [2026-03-09 23:53:51] Logger for species whale
-    INFO [2026-03-09 23:53:51] Species count: 6
+    [1] "Logger crow_60383d50215a.log -----"
+    INFO [2026-03-10 11:55:24] Logger for species crow
+    INFO [2026-03-10 11:55:25] Species count: 5
+    [1] "Logger daisy_52407634f21.log -----"
+    INFO [2026-03-10 11:55:24] Logger for species daisy
+    INFO [2026-03-10 11:55:25] Species count: 6
+    [1] "Logger dragonfly_5a506508a32.log -----"
+    INFO [2026-03-10 11:55:24] Logger for species dragonfly
+    INFO [2026-03-10 11:55:25] Species count: 8
+    [1] "Logger whale_6aa07e0e5720.log -----"
+    INFO [2026-03-10 11:55:24] Logger for species whale
+    INFO [2026-03-10 11:55:25] Species count: 6
 
 Amazing! Our outputs got copied to the files!
 
