@@ -2,7 +2,7 @@
 title: "CV"
 ---
 
-{{< pdf-button src="pdf/cv.pdf" label="View my complete CV" >}}
+{{< pdf-button src="pdf/Nicvert_Lisa_CV.pdf" label="View my complete CV" >}}
 
 ### Education
 
