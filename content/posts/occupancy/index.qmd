@@ -7,11 +7,14 @@ image: ""
 draft: true
 bibliography: references.bib
 featured_image: "images/occupancy/bird.png"
+math: true
 tags: 
   - R 
   - statistics
   - occupancy
 ---
+
+*This post was originally published on CESAB's (tips and tricks blog)[https://frbcesab.github.io/tips-and-tricks/posts/2026-01-06-occupancy-models-in-r/]*
 
 > Question. Why do we talk out loud when we know we're alone? Conjecture. Because we know we're not.
 >

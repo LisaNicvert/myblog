@@ -18,6 +18,10 @@
     {{ if .Site.Params.favicon }}
     <link rel="icon" href="{{ .Site.Params.favicon | relURL }}">
     {{ end }}
+
+    {{ if .Param "math" }}
+        {{ partialCached "math.html" . }}
+    {{ end }}
 </head>
 <body class="kawaii-body">
     <div class="kawaii-container">

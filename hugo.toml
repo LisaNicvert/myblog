@@ -11,6 +11,8 @@ theme = ["kawaii"]
   description = "ecology, stats & coding"
   author = "Lisa Nicvert"
   
+  math = false
+
   theme_toggle = true
   search = true
   favicon = "/favicon.ico"
@@ -100,6 +102,12 @@ theme = ["kawaii"]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)'], ['$', '$']]
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]

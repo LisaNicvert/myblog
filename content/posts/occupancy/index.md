@@ -7,6 +7,7 @@ image: ''
 draft: true
 bibliography: references.bib
 featured_image: images/occupancy/bird.png
+math: true
 tags:
   - R
   - statistics
@@ -24,7 +25,7 @@ It's not because we didn't see something that this thing wasn't present. At leas
 
 <figure>
 <img src="images/occupancy/bird.png" alt="Present (z_i = 1), but not detected (y_{ij} = 0). Photo by Caroline Kirk (source)" />
-<figcaption aria-hidden="true">Present (<span class="math inline">\(z_i = 1\)</span>), but not detected (<span class="math inline">\(y_{ij} = 0\)</span>). <em>Photo by Caroline Kirk (<a href="https://www.independent.co.uk/news/uk/wildlife-photographer-owl-camera-image-b1818585.html">source</a>)</em></figcaption>
+<figcaption aria-hidden="true">Present (<span class="math inline"><em>z</em><sub><em>i</em></sub> = 1</span>), but not detected (<span class="math inline"><em>y</em><sub><em>i</em><em>j</em></sub> = 0</span>). <em>Photo by Caroline Kirk (<a href="https://www.independent.co.uk/news/uk/wildlife-photographer-owl-camera-image-b1818585.html">source</a>)</em></figcaption>
 </figure>
 
 Occupancy models were first published by MacKenzie et al. (2002) in the context of species occurrence modelling. Many extensions of occupancy have been proposed since, allowing to explicitly model occupancy dynamics (MacKenzie et al. 2003), take into account multiple species (Rota et al. 2016) or a continuous detection process (MacKenzie et al. 2003). This blog post only goes over the original simple occupancy model.
