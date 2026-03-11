@@ -187,6 +187,23 @@
   --kawaii-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.08);
   --kawaii-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
   --kawaii-shadow-colored: 0 8px 32px 0 rgba(255, 107, 157, 0.15);
+
+  /* For images dynamic display */
+  .color-invertible {
+    filter: invert(100%);
+  }
+
+  .dark {
+    display: block;
+  }
+  
+  .light {
+    display: none;
+  }
+}
+
+.dark {
+  display: none;
 }
 
 /* Reset & Base */

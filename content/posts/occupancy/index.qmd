@@ -31,7 +31,9 @@ Occupancy models were first published by @mackenzie2002 in the context of specie
 
 ## Simple occupancy model
 
-![Summary diagram of the structure of an occupancy model.](diagram.png){width=80%}
+<img class="light" src="diagram-light.png" loading="lazy"/>
+<img class="dark" src="diagram-dark.png" loading="lazy"/>
+<figcaption>Summary diagram of the structure of an occupancy model.</figcaption>
 
 To discriminate between the real and the observed states, occupancy models have one parameter for each of these states. The *true* presence or absence of a species in a given site $i$ is noted $z_i$. The *observed* presence or absence at site $i$ for a given visit $j$ is noted $y_{ij}$. 
 

@@ -15,6 +15,8 @@ tags:
 ---
 
 
+*This post was originally published on CESAB's (tips and tricks blog)\[https://frbcesab.github.io/tips-and-tricks/posts/2026-01-06-occupancy-models-in-r/\]*
+
 > Question. Why do we talk out loud when we know we're alone? Conjecture. Because we know we're not.
 >
 > -- *The Twelfth Doctor, Doctor Who (Series 8, Episode 4: "Listen")*
@@ -32,10 +34,11 @@ Occupancy models were first published by MacKenzie et al. (2002) in the context 
 
 ## Simple occupancy model
 
-<figure>
-<img src="diagram.png" style="width:80.0%" alt="Summary diagram of the structure of an occupancy model." />
-<figcaption aria-hidden="true">Summary diagram of the structure of an occupancy model.</figcaption>
-</figure>
+<img class="light" src="diagram-light.png" loading="lazy"/>
+<img class="dark" src="diagram-dark.png" loading="lazy"/>
+<figcaption>
+Summary diagram of the structure of an occupancy model.
+</figcaption>
 
 To discriminate between the real and the observed states, occupancy models have one parameter for each of these states. The *true* presence or absence of a species in a given site $i$ is noted $z_i$. The *observed* presence or absence at site $i$ for a given visit $j$ is noted $y_{ij}$.
 
