@@ -4,7 +4,8 @@
     "order": 3,
     "items": [
       {
-        "title": "Méthodes statistiques et outils logiciels pour l'analyse et l'inférence de réseaux écologiques et le traitement de données multi-espèces",
+        "bibtexkey": "nicvert_statistical_2024",
+        "title": "Statistical methods and software tools to analyze and infer ecological networks and process multi-species data",
         "author": "Nicvert Lisa",
         "year": 2024,
         "journal": null,
@@ -12,7 +13,9 @@
         "number": null,
         "pages": null,
         "publisher": null,
-        "doi": null
+        "doi": null,
+        "url": "https://theses.hal.science/tel-04751639",
+        "pdf": "pdf/nicvert_statistical_2024.pdf"
       }
     ]
   },
@@ -21,6 +24,7 @@
     "order": 2,
     "items": [
       {
+        "bibtexkey": "beck_strategic_2025",
         "title": "Strategic citations for a fairer academic landscape",
         "author": "Beck Miriam, Annasawmy Pavanee, Birre Deborah, Busana Michela, Casajus Nicolas, Coux Camille, Marino Clara, Mouquet Nicolas, Nicvert Lisa, Oliveira Brunno F., Petit-Cailleux Cathleen, Tortosa Axelle, Unkule Mithila, Vagnon Chloé, Veytia Devi",
         "year": 2025,
@@ -29,7 +33,9 @@
         "number": null,
         "pages": null,
         "publisher": "bioRxiv",
-        "doi": "10.1101/2025.08.06.668908"
+        "doi": "10.1101/2025.08.06.668908",
+        "url": "https://www.biorxiv.org/content/10.1101/2025.08.06.668908v1",
+        "pdf": "pdf/beck_strategic_2025.pdf"
       }
     ]
   },
@@ -38,6 +44,7 @@
     "order": 1,
     "items": [
       {
+        "bibtexkey": "nicvert_using_2024",
         "title": "Using the multivariate Hawkes process to study interactions between multiple species from camera trap data",
         "author": "Nicvert Lisa, Donnet Sophie, Keith Mark, Peel Mike, Somers Michael J., Swanepoel Lourens H., Venter Jan, Fritz Hervé, Dray Stéphane",
         "year": 2024,
@@ -46,9 +53,12 @@
         "number": "4",
         "pages": "e4237",
         "publisher": null,
-        "doi": "10.1002/ecy.4237"
+        "doi": "10.1002/ecy.4237",
+        "url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/ecy.4237",
+        "pdf": "pdf/nicvert_using_2024.pdf"
       },
       {
+        "bibtexkey": "nicvert_trait_2025",
         "title": "Trait matching without traits: using correspondence analysis to investigate the latent structure of interaction networks",
         "author": "Nicvert Lisa, Fritz Hervé, Dray Stéphane",
         "year": 2025,
@@ -57,7 +67,9 @@
         "number": "article no. e73",
         "pages": null,
         "publisher": null,
-        "doi": "10.24072/pcjournal.580"
+        "doi": "10.24072/pcjournal.580",
+        "url": "https://peercommunityjournal.org/articles/10.24072/pcjournal.580/",
+        "pdf": "pdf/nicvert_trait_2025.pdf"
       }
     ]
   }

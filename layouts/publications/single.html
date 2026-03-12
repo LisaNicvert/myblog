@@ -11,15 +11,22 @@
                 <div>
                     <h2>{{ .name }}</h2>
                     {{ range sort .items "year" "desc" }}
-                        <p style="text-indent: 2em;">{{ replaceRE `(Nicvert Lisa)` `<strong>$1</strong>` .author | safeHTML }}  ({{ .year }}). 
-                            {{ .title }}. 
+                        <p style="text-indent: 2em;"> 
+                            {{ if .doi }}
+                                <a href="https://doi.org/{{ .doi }}">{{ .title }}</a>.
+                            {{ else if .url }}
+                                <a href="{{ .url }}">{{ .title }}</a>.
+                            {{ else }}
+                                {{ .title }}.
+                            {{ end }}
+                            {{ replaceRE `(Nicvert Lisa)` `<strong>$1</strong>` .author | safeHTML }} ({{ .year }}).
                             {{ if .journal }}
                                 {{ .journal }}, {{ .volume }}({{ .number }}){{ if .pages }}, {{ .pages }}{{ end }}.
                             {{ else if .publisher }}
                                 {{ .publisher }}.
                             {{ end }}
-                            {{ if .doi }}
-                                <a href="https://doi.org/{{ .doi }}">DOI</a>
+                            {{ if .pdf }}
+                                <a href="{{ .pdf }}">View PDF</a>
                             {{ end }}
                         </p>
                         <p>{{ .note }}</p>

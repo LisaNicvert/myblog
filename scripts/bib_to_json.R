@@ -8,11 +8,11 @@ scripts_folder <- here("scripts")
 data_folder <- here("data")
 
 # Read the .bib file
-bib <- bib2df(file.path(scripts_folder, "publications.bib"))
+bib <- bib2df(file.path(scripts_folder, "website.bib"))
 
 # Clean and select fields you want
-publications <- bib[, c("CATEGORY", "TITLE", "AUTHOR", "YEAR", "JOURNAL",
-"VOLUME", "NUMBER", "PAGES", "PUBLISHER", "DOI")]
+publications <- bib[, c("BIBTEXKEY", "CATEGORY", "TITLE", "AUTHOR", "YEAR", "JOURNAL",
+"VOLUME", "NUMBER", "PAGES", "PUBLISHER", "DOI", "URL")]
 
 # Rename categories
 old_categories <- c("ARTICLE", "PHDTHESIS", "MISC")
@@ -26,9 +26,8 @@ publications$TITLE <- gsub("[{}]", "", publications$TITLE)
 # Rename columns
 colnames(publications) <- tolower(colnames(publications))
 
-# Add notes
-# notes <- c("My first ever published article!", NA, NA, NA)
-# publications$note <- notes
+# Add pdf
+publications$pdf <- file.path("pdf", paste0(publications$bibtexkey, ".pdf"))
 
 # Add order attribute
 category_order <- c(1, 2, 3)
@@ -41,6 +40,7 @@ publications <- publications |>
     order = unname(category_order[name]),
     items = x[, names(x) != "category"]
   ))
+
 
 # Write to Hugo data folder
 write_json(publications, file.path(data_folder, "publications.json"), 
