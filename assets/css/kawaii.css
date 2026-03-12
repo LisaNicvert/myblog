@@ -100,9 +100,9 @@
   --kawaii-text-lg: 1.125rem;    /* 18px */
   --kawaii-text-xl: 1.25rem;     /* 20px */
   --kawaii-text-2xl: 1.5rem;     /* 24px */
-  --kawaii-text-3xl: 1.875rem;   /* 30px */
-  --kawaii-text-4xl: 2.25rem;    /* 36px */
-  --kawaii-text-5xl: 3rem;       /* 48px */
+  --kawaii-text-3xl: 2.25rem;   /* 30px */
+  --kawaii-text-4xl: 3rem;
+  --kawaii-text-5xl: 3.5rem; 
   
   /* Line heights */
   --kawaii-leading-none: 1;
@@ -861,11 +861,17 @@ hr::after {
   background: rgba(255, 255, 255, 0.95);
   width: 100%;
   margin: 0 auto;
+  /*position: sticky;*/
+  /*top: 4.5rem;*/
   padding: 10px var(--kawaii-spacing-6);
   display: flex;
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid var(--kawaii-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: var(--kawaii-z-40);
+  transition: var(--kawaii-transition);
 }
 
 [data-theme="dark"] .breadcrumb-full, .breadcrumb-short {
@@ -1220,7 +1226,7 @@ hr::after {
 
 /* Article Styles */
 .kawaii-article {
-  max-width: 800px;
+  max-width: 960px;
   margin: 0 auto;
   padding: var(--kawaii-spacing-3xl) var(--kawaii-spacing-lg);
 }
