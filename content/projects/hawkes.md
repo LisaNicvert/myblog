@@ -7,10 +7,9 @@ date: "2020-01-01"
 project_end: 2024
 ---
 
-This project, completed during my PhD, aimed at inferring interactions between species from camera trap data. For this, we used a multivariate Hawkes process. This point process allows to derive interaction functions between species pairs, where the intensity of interaction is a function of the time elapsed since the first species' occurrence.
+This project, completed during my PhD, aimed at inferring interactions between species from camera trap data. For this, I used a multivariate Hawkes process. This point process allows to derive interaction functions between species pairs, where the intensity of interaction is a function of the time elapsed since the first species' occurrence.
 
-First, we evaluated the algorithm's performance on simulated data with realistic ecological parameters. Then, we analyzed patterns of attraction-avoidance between five species of African mammals. We notably find that zebras and impalas seem to avoid lions, while zebra and impala attract all other herbivores, and wildebeest attracts zebra.
+These results have been published in [an article](/pdf/Nicvert_et_al_2024_Using_the_multivarite.pdf) and are explored more in-depth in [my PhD thesis](/pdf/Nicvert_Lisa_2024_thesis.pdf). We demonstrated the relevance of the Hawkes process to analyze ecological data using simulated data with realistic ecological parameters. Then, we analyzed patterns of attraction-avoidance between five species of African mammals, and notably find that zebras and impalas seem to avoid lions, while zebra and impala attract all other herbivores, and wildebeest attracts zebra.
 
-I think the MHP is relevant to think about interactions inferred from camera trap data. It may not be widely applicable yet, because of methodological limitations and (relative) data scarcity, but I hope these limitations can be overcome in the near future.
-
-Results have been bublished in this article.
+The Hawkes process is highly relevant for interactions inference from camera trap data, but
+it would benefit from methodological developments allowing to include covariates in the model to make this model more widely applicable.

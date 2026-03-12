@@ -7,8 +7,8 @@ date: "2020-01-01"
 project_end: "present"
 ---
 
-This project, started during my PhD, aims at better understanding rules structuring interactions networks, in particular trait matching. For this, we use methods from the correspondence analysis family, which are well-suited to project a contingency matrix in the multivariate space.
+This project started during my PhD. It aims at better understanding rules structuring interactions networks, in particular trait matching. For this, we use methods from the correspondence analysis family.
 
-A first step was to use simple correspondence analysys (CA) with reciprocal scaling. These unconstrained ordination methods allow to order species along a latent gradient, which can be interpreted as their latent traits involved in their interactions. This provides a method to investigate trait matching between species, _even when traits are not measured!_ These results have been published here.
+n a first step, we to used simple correspondence analysis (CA) with reciprocal scaling. These unconstrained ordination methods allow to order species along latent gradients, which can be interpreted as their unmeasured traits involved in their interactions. This provides a method to investigate trait matching between species, _even when traits are not measured!_ These results have been published [here](/pdf/Nicvert_et_al_2025_Trait_matching.pdf).
 
-Then, we investigated constrained ordination methods, Constrained CA (CCA) and double-constrained CA (dc-CA). They allow to incorporate trait into the analysis, to get a measure of matching, partition the variation and project species in a constrained space. These results are available in my PhD thesis, and an article is also in preparation.
+Then, we investigated constrained ordination methods, Constrained CA (CCA) and double-constrained CA (dc-CA). They allow to incorporate trait into the analysis, to get a measure of matching, partition the variation and project species in a constrained space. This has been discussed in [my PhD thesis](/pdf/Nicvert_Lisa_2024_thesis.pdf), and an article is also in preparation.
