@@ -1927,7 +1927,7 @@ pre[tabindex="0"] {
 }
 
 .highlight {
-  margin-bottom: var(--kawaii-spacing-6) 0;
+  margin: var(--kawaii-spacing-6) 0;
 }
 
 .highlight.has-following-pre, pre.has-following-pre {
