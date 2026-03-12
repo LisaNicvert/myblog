@@ -14,18 +14,32 @@ tags:
   - occupancy
 ---
 
-*This post was originally published on CESAB's (tips and tricks blog)[https://frbcesab.github.io/tips-and-tricks/posts/2026-01-06-occupancy-models-in-r/]*
+*This post was originally published on CESAB's [tips and tricks blog](https://frbcesab.github.io/tips-and-tricks/posts/2026-01-06-occupancy-models-in-r/)*
 
 > Question. Why do we talk out loud when we know we're alone? Conjecture. Because we know we're not.
 >
 > -- *The Twelfth Doctor, Doctor Who (Series 8, Episode 4: "Listen")*
 
+```{r}
+#| echo: false
+library(ggplot2)
+
+theme_set(theme_bw(base_size = 15))
+theme_update(
+  plot.background = element_rect(fill = "transparent", color = NA),
+  panel.grid = element_blank(),
+  text = element_text(color = "grey70"),
+  axis.text = element_text(color = "grey70"),
+  axis.ticks = element_line(color = "grey70")
+)
+```
 
 ## Introduction
 
 It's not because we didn't see something that this thing wasn't present. At least, that's the idea behind occupancy models: our observations aren't a direct representation of reality, but merely of what we can detect.
 
-![Present ($z_i = 1$), but not detected ($y_{ij} = 0$). _Photo by Caroline Kirk ([source](https://www.independent.co.uk/news/uk/wildlife-photographer-owl-camera-image-b1818585.html))_](images/occupancy/bird.png)
+{{< img src="occupancy/bird.png" alt="An owl perched on a photographer's lens" >}}
+<figcaption>Present ($z_i = 1$), but not detected ($y_{ij} = 0$). <it>Photo by Caroline Kirk (<a href = "https://www.independent.co.uk/news/uk/wildlife-photographer-owl-camera-image-b1818585.html"> source</a>)</it></figcaption>
 
 Occupancy models were first published by @mackenzie2002 in the context of species occurrence modelling. Many extensions of occupancy have been proposed since, allowing to explicitly model occupancy dynamics [@mackenzie_estimating_2003], take into account multiple species [@rota_multispecies_2016] or a continuous detection process [@mackenzie_estimating_2003]. This blog post only goes over the original simple occupancy model.
 
@@ -173,8 +187,7 @@ And inferred parameters are a good approximation of true values (see figure belo
 #| code-fold: true
 #| dev: svg
 #| dev.args: !expr list(bg="transparent")
-
-library(ggplot2)
+#| fig-cap: "True and inferred occupancy parameters with unmarked"
 
 p_inf <- unmarked::predict(occ, 
                            type = "det",
@@ -200,11 +213,8 @@ ggplot(umk_param_df) +
                     color = type)) +
   geom_point(aes(x = estimate, y = param,
                  color = type)) +
-  theme_bw(base_size = 15) +
   xlim(0, 1) +
-  theme(axis.title = element_blank(),
-        plot.background = element_rect(fill = "transparent", color = NA),) +
-  ggtitle("True and inferred occupancy parameters with unmarked")
+  theme(axis.title = element_blank())
 ```
 
 ### Stan
@@ -416,6 +426,7 @@ Finally, a graphical summary shows that inferred parameters are close to the rea
 #| code-fold: true
 #| dev: svg
 #| dev.args: !expr list(bg="transparent")
+#| fig-cap: "True and inferred occupancy parameters with Stan"
 
 library(ggplot2)
 
@@ -434,11 +445,7 @@ ggplot(stan_param_df) +
                     color = type)) +
   geom_point(aes(x = estimate, y = param,
                  color = type)) +
-  theme_bw(base_size = 15) +
-  xlim(0, 1) +
-  theme(axis.title = element_blank(),
-        plot.background = element_rect(fill = "transparent", color = NA)) +
-  ggtitle("True and inferred occupancy parameters with Stan")
+  xlim(0, 1)
 ```
 
 ## Conclusion

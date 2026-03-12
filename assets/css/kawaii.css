@@ -1586,7 +1586,6 @@ hr::after {
   /* Mobile code block adjustments */
   pre {
     padding: var(--kawaii-spacing-4);
-    margin: var(--kawaii-spacing-6) 0;
     border-radius: var(--kawaii-radius-lg);
   }
   
@@ -1917,8 +1916,22 @@ pre {
   margin-top: 0;
 }
 
-pre[tabindex] {
+/* Adjust input/outputs margins */
+pre[tabindex="0"] {
   background: var(--kawaii-bg-quarto) !important;
+}
+
+.highlight pre {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.highlight {
+  margin-bottom: var(--kawaii-spacing-6) 0;
+}
+
+.highlight.has-following-pre, pre.has-following-pre {
+  margin: var(--kawaii-spacing-2) 0 !important;
 }
 
 pre[tabindex] code {

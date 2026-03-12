@@ -15,7 +15,7 @@ tags:
 ---
 
 
-*This post was originally published on CESAB's (tips and tricks blog)\[https://frbcesab.github.io/tips-and-tricks/posts/2026-01-06-occupancy-models-in-r/\]*
+*This post was originally published on CESAB's [tips and tricks blog](https://frbcesab.github.io/tips-and-tricks/posts/2026-01-06-occupancy-models-in-r/)*
 
 > Question. Why do we talk out loud when we know we're alone? Conjecture. Because we know we're not.
 >
@@ -25,10 +25,10 @@ tags:
 
 It's not because we didn't see something that this thing wasn't present. At least, that's the idea behind occupancy models: our observations aren't a direct representation of reality, but merely of what we can detect.
 
-<figure>
-<img src="images/occupancy/bird.png" alt="Present (z_i = 1), but not detected (y_{ij} = 0). Photo by Caroline Kirk (source)" />
-<figcaption aria-hidden="true">Present (<span class="math inline"><em>z</em><sub><em>i</em></sub> = 1</span>), but not detected (<span class="math inline"><em>y</em><sub><em>i</em><em>j</em></sub> = 0</span>). <em>Photo by Caroline Kirk (<a href="https://www.independent.co.uk/news/uk/wildlife-photographer-owl-camera-image-b1818585.html">source</a>)</em></figcaption>
-</figure>
+{{< img src="occupancy/bird.png" alt="An owl perched on a photographer's lens" >}}
+<figcaption>
+Present ($z_i = 1$), but not detected ($y_{ij} = 0$). <it>Photo by Caroline Kirk (<a href = "https://www.independent.co.uk/news/uk/wildlife-photographer-owl-camera-image-b1818585.html"> source</a>)</it>
+</figcaption>
 
 Occupancy models were first published by MacKenzie et al. (2002) in the context of species occurrence modelling. Many extensions of occupancy have been proposed since, allowing to explicitly model occupancy dynamics (MacKenzie et al. 2003), take into account multiple species (Rota et al. 2016) or a continuous detection process (MacKenzie et al. 2003). This blog post only goes over the original simple occupancy model.
 
@@ -232,8 +232,6 @@ And inferred parameters are a good approximation of true values (see figure belo
 <summary>Code</summary>
 
 ``` r
-library(ggplot2)
-
 p_inf <- unmarked::predict(occ, 
                            type = "det",
                            backTransform = TRUE,
@@ -258,16 +256,16 @@ ggplot(umk_param_df) +
                     color = type)) +
   geom_point(aes(x = estimate, y = param,
                  color = type)) +
-  theme_bw(base_size = 15) +
   xlim(0, 1) +
-  theme(axis.title = element_blank(),
-        plot.background = element_rect(fill = "transparent", color = NA),) +
-  ggtitle("True and inferred occupancy parameters with unmarked")
+  theme(axis.title = element_blank())
 ```
 
 </details>
 
-<img src="index.markdown_strict_files/figure-markdown_strict/unnamed-chunk-7-1.svg" width="768" />
+<figure>
+<img src="index.markdown_strict_files/figure-markdown_strict/unnamed-chunk-8-1.svg" width="768" alt="True and inferred occupancy parameters with unmarked" />
+<figcaption aria-hidden="true">True and inferred occupancy parameters with unmarked</figcaption>
+</figure>
 
 ### Stan
 
@@ -496,16 +494,15 @@ ggplot(stan_param_df) +
                     color = type)) +
   geom_point(aes(x = estimate, y = param,
                  color = type)) +
-  theme_bw(base_size = 15) +
-  xlim(0, 1) +
-  theme(axis.title = element_blank(),
-        plot.background = element_rect(fill = "transparent", color = NA)) +
-  ggtitle("True and inferred occupancy parameters with Stan")
+  xlim(0, 1)
 ```
 
 </details>
 
-<img src="index.markdown_strict_files/figure-markdown_strict/unnamed-chunk-13-1.svg" width="768" />
+<figure>
+<img src="index.markdown_strict_files/figure-markdown_strict/unnamed-chunk-14-1.svg" width="768" alt="True and inferred occupancy parameters with Stan" />
+<figcaption aria-hidden="true">True and inferred occupancy parameters with Stan</figcaption>
+</figure>
 
 ## Conclusion
 

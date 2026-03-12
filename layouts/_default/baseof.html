@@ -22,6 +22,7 @@
     {{ if .Param "math" }}
         {{ partialCached "math.html" . }}
     {{ end }}
+    {{ partialCached "code-margins.html" . }}
 </head>
 <body class="kawaii-body">
     <div class="kawaii-container">

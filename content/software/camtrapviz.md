@@ -31,7 +31,10 @@ can be reproduced (thanks to the {[shinymeta](https://rstudio.github.io/shinymet
 - All species: get diversity and abundance information
 - One species: get activity and detection patterns for selected species
 
-{{< img src="software/camtrapviz-modules.png" alt="{camtrapviz} modules" >}}
+
+{{< img class="light" src="software/camtrapviz-modules-light.png" alt="{camtrapviz} modules" loading="lazy" >}}
+{{< img class="dark" src="software/camtrapviz-modules-dark.png" alt="{camtrapviz} modules" loading="lazy" >}}
+<figcaption>Overview of the {camtrapviz} modules</figcaption>
 
 ### Resources
 The Shiny application is live [here](https://lbbe-shiny.univ-lyon1.fr/camtrapviz/).

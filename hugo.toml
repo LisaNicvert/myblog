@@ -106,8 +106,8 @@ theme = ["kawaii"]
       [markup.goldmark.extensions.passthrough]
         enable = true
         [markup.goldmark.extensions.passthrough.delimiters]
-          block = [['\[', '\]'], ['$$', '$$']]
-          inline = [['\(', '\)'], ['$', '$']]
+          block = [['$$', '$$']]
+          inline = [['$', '$']]
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]

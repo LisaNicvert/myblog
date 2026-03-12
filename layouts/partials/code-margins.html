@@ -1,0 +1,14 @@
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.highlight').forEach(el => {
+      if (el.nextElementSibling?.tagName === 'PRE') {
+        el.classList.add('has-following-pre');
+      }
+    });
+    document.querySelectorAll('pre').forEach(el => {
+      if (el.nextElementSibling?.classList.contains('highlight')) {
+        el.classList.add('has-following-pre');
+      }
+    });
+  });
+</script>
