@@ -7,9 +7,10 @@ draft: true
 featured_image: "images/logger.jpg"
 tags: 
   - R
+  - reproducibility
 ---
 
-{{< img src="logger.jpg" alt="Logs" >}}
+<img src="/images/logger.jpg" alt="Logs">
 <figcaption>A stack of logs by Walter Baxter, <a href="https://creativecommons.org/licenses/by-sa/2.0" title="Creative Commons Attribution-Share Alike 2.0">CC BY-SA 2.0</a> (<a href="https://commons.wikimedia.org/w/index.php?curid=144470224">Link</a>)</figcaption>
 
 ```{r}

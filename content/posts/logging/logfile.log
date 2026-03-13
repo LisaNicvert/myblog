@@ -2,3 +2,12 @@ DEBUG [2026-03-10 11:54:57] Start script
 INFO [2026-03-10 11:54:57] res is forty-two
 WARN [2026-03-10 11:54:57] NAs introduced by coercion
 DEBUG [2026-03-10 11:54:57] End analyses
+DEBUG [2026-03-13 16:00:04] Start script
+INFO [2026-03-13 16:00:04] res is forty-two
+WARN [2026-03-13 16:00:04] NAs introduced by coercion
+DEBUG [2026-03-13 16:00:04] End analyses
+WARN [2026-03-13 16:00:37] Ignoring this call to log_warnings as it was registered previously.
+DEBUG [2026-03-13 16:00:37] Start script
+INFO [2026-03-13 16:00:37] res is forty-two
+WARN [2026-03-13 16:00:37] NAs introduced by coercion
+DEBUG [2026-03-13 16:00:37] End analyses

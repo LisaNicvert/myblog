@@ -7,10 +7,11 @@ draft: true
 featured_image: images/logger.jpg
 tags:
   - R
+  - reproducibility
 ---
 
 
-{{< img src="logger.jpg" alt="Logs" >}}
+<img src="/images/logger.jpg" alt="Logs">
 <figcaption>
 A stack of logs by Walter Baxter, <a href="https://creativecommons.org/licenses/by-sa/2.0" title="Creative Commons Attribution-Share Alike 2.0">CC BY-SA 2.0</a> (<a href="https://commons.wikimedia.org/w/index.php?curid=144470224">Link</a>)
 </figcaption>
@@ -103,9 +104,9 @@ log_debug("End analyses")
 
 Here is our logfile:
 
-    DEBUG [2026-03-10 11:55:22] Start script
-    INFO [2026-03-10 11:55:22] res is 42
-    DEBUG [2026-03-10 11:55:22] End analyses
+    DEBUG [2026-03-13 16:00:59] Start script
+    INFO [2026-03-13 16:00:59] res is 42
+    DEBUG [2026-03-13 16:00:59] End analyses
 
 That's it for a basic logger!
 
@@ -129,7 +130,7 @@ log_debug("End analyses")
 
 In the code above with a log level set to `INFO`, all `DEBUG` messages are omitted.
 
-    INFO [2026-03-10 11:55:22] res is 42
+    INFO [2026-03-13 16:00:59] res is 42
 
 ### Logging warnings, errors and messages
 
@@ -156,9 +157,9 @@ log_debug("End analyses")
 
 Now, the certainly the logfile should show the warning?
 
-    DEBUG [2026-03-10 11:55:23] Start script
-    INFO [2026-03-10 11:55:23] res is forty-two
-    DEBUG [2026-03-10 11:55:23] End analyses
+    DEBUG [2026-03-13 16:00:59] Start script
+    INFO [2026-03-13 16:00:59] res is forty-two
+    DEBUG [2026-03-13 16:00:59] End analyses
 
 ... except it doesn't. The logger records only what we tell it to, so we need to explicitly ask to record warnings.
 
@@ -187,6 +188,15 @@ log_debug("End analyses")
     INFO [2026-03-10 11:54:57] res is forty-two
     WARN [2026-03-10 11:54:57] NAs introduced by coercion
     DEBUG [2026-03-10 11:54:57] End analyses
+    DEBUG [2026-03-13 16:00:04] Start script
+    INFO [2026-03-13 16:00:04] res is forty-two
+    WARN [2026-03-13 16:00:04] NAs introduced by coercion
+    DEBUG [2026-03-13 16:00:04] End analyses
+    WARN [2026-03-13 16:00:37] Ignoring this call to log_warnings as it was registered previously.
+    DEBUG [2026-03-13 16:00:37] Start script
+    INFO [2026-03-13 16:00:37] res is forty-two
+    WARN [2026-03-13 16:00:37] NAs introduced by coercion
+    DEBUG [2026-03-13 16:00:37] End analyses
 
 The same is true for errors and messages, which can be recorded with `log_messages()` and `log_errors()`.
 
@@ -267,18 +277,18 @@ stopCluster(cluster)
 
 Let's see what's in the logfiles:
 
-    [1] "Logger crow_60383d50215a.log -----"
-    INFO [2026-03-10 11:55:24] Logger for species crow
-    INFO [2026-03-10 11:55:25] Species count: 5
-    [1] "Logger daisy_52407634f21.log -----"
-    INFO [2026-03-10 11:55:24] Logger for species daisy
-    INFO [2026-03-10 11:55:25] Species count: 6
-    [1] "Logger dragonfly_5a506508a32.log -----"
-    INFO [2026-03-10 11:55:24] Logger for species dragonfly
-    INFO [2026-03-10 11:55:25] Species count: 8
-    [1] "Logger whale_6aa07e0e5720.log -----"
-    INFO [2026-03-10 11:55:24] Logger for species whale
-    INFO [2026-03-10 11:55:25] Species count: 6
+    [1] "Logger crow_19464ff4be3.log -----"
+    INFO [2026-03-13 16:01:00] Logger for species crow
+    INFO [2026-03-13 16:01:00] Species count: 5
+    [1] "Logger daisy_2888b36753e.log -----"
+    INFO [2026-03-13 16:01:00] Logger for species daisy
+    INFO [2026-03-13 16:01:00] Species count: 6
+    [1] "Logger dragonfly_1164c8f1533.log -----"
+    INFO [2026-03-13 16:01:00] Logger for species dragonfly
+    INFO [2026-03-13 16:01:00] Species count: 8
+    [1] "Logger whale_2aac5b9c1c0c.log -----"
+    INFO [2026-03-13 16:01:00] Logger for species whale
+    INFO [2026-03-13 16:01:00] Species count: 6
 
 Amazing! Our outputs got copied to the files!
 
