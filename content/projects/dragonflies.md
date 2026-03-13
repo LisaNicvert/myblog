@@ -1,11 +1,14 @@
 ---
 title: DRAGON project
 description: European dragonflies as indicators of freshwater ecosystems
-featured_image: images/dragonflies.jpg
+featured_image: images/projects/dragonflies.jpg
 institution: FRB-Cesab
 date: "2024-01-01"
 project_end: "present"
 ---
+
+<img src="/images/projects/dragonflies.jpg" style="width:80%;">
+</br>
 
 Since November 2024, I am part of the consortium of the [DRAGON project](https://www.fondationbiodiversite.fr/en/the-frb-in-action/programs-and-projects/le-cesab/dragon/), which aims at studying the response of European dragonflies to anthropogenic pressures.
 

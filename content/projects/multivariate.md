@@ -1,11 +1,14 @@
 ---
 title: Multivariate analyses of interaction networks
 description: Correspondence analyses to infer interaction niches and trait matching
-featured_image: images/multivariate.jpg
+featured_image: images/projects/multivariate.jpg
 institution: LBBE
 date: "2020-01-01"
 project_end: "present"
 ---
+
+<img src="/images/projects/multivariate.jpg" style="width:80%;">
+</br>
 
 This project started during my PhD. It aims at better understanding rules structuring interactions networks, in particular trait matching. For this, we use methods from the correspondence analysis family.
 

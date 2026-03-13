@@ -1,11 +1,14 @@
 ---
 title: "Attraction-repulsion inference in camera traps"
 description: "Using a point process to infer interactions"
-featured_image: images/hawkes.jpg
+featured_image: images/projects/hawkes.jpg
 institution: LBBE
 date: "2020-01-01"
 project_end: 2024
 ---
+
+<img src="/images/projects/hawkes.jpg" style="width:80%;">
+</br>
 
 This project, completed during my PhD, aimed at inferring interactions between species from camera trap data. For this, I used a multivariate Hawkes process. This point process allows to derive interaction functions between species pairs, where the intensity of interaction is a function of the time elapsed since the first species' occurrence.
 
