@@ -1,4 +1,4 @@
-baseURL = "https://lisanicvert.github.io/myblog"
+baseURL = "https://lisanicvert.github.io"
 languageCode = "en-us"
 title = "Lisa Nicvert"
 theme = ["kawaii"]
