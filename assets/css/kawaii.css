@@ -730,17 +730,10 @@ hr::after {
 
 /* Enhanced Header */
 .kawaii-header {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--kawaii-border);
-  position: sticky;
-  top: 0;
-  z-index: var(--kawaii-z-50);
-  transition: var(--kawaii-transition);
 }
 
-[data-theme="dark"] .kawaii-header {
+[data-theme="dark"] .scrollable {
   background: rgba(17, 24, 39, 0.95);
 }
 
@@ -858,24 +851,13 @@ hr::after {
 
 /* Breadcrumbs */
 .breadcrumb-full, .breadcrumb-short {
-  background: rgba(255, 255, 255, 0.95);
   width: 100%;
   margin: 0 auto;
-  /*position: sticky;*/
-  /*top: 4.5rem;*/
   padding: 10px var(--kawaii-spacing-6);
   display: flex;
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid var(--kawaii-border);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  z-index: var(--kawaii-z-40);
-  transition: var(--kawaii-transition);
-}
-
-[data-theme="dark"] .breadcrumb-full, .breadcrumb-short {
-  background: rgba(17, 24, 39, 0.95);
 }
 
 .breadcrumb-full { display: flex; }
@@ -1819,6 +1801,16 @@ select:focus {
   box-shadow: var(--kawaii-shadow-lg);
 }
 
+.scrollable {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: sticky;
+  top: 0;
+  z-index: var(--kawaii-z-50);
+  transition: var(--kawaii-transition);
+}
+
 .kawaii-back-to-top-visible {
   opacity: 1;
   visibility: visible;
@@ -1831,17 +1823,17 @@ select:focus {
 }
 
 /* Header scroll states */
-.kawaii-header-scrolled {
+.scrollable-scrolled {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   box-shadow: var(--kawaii-shadow-sm);
 }
 
-[data-theme="dark"] .kawaii-header-scrolled {
+[data-theme="dark"] .scrollable-scrolled {
   background: rgba(26, 32, 44, 0.95);
 }
 
-.kawaii-header-hidden {
+.scrollable-hidden {
   transform: translateY(-100%);
 }
 
@@ -1892,7 +1884,7 @@ select:focus {
 
 /* Print styles */
 @media print {
-  .kawaii-header,
+  .scrollable,
   .kawaii-footer,
   .kawaii-hero,
   .kawaii-nav-extras,

@@ -91,7 +91,7 @@
 
     // Add scroll-based header styling
     function initScrollHeader() {
-        const header = document.querySelector('.kawaii-header');
+        const header = document.querySelector('.scrollable');
         let lastScroll = 0;
         
         if (header) {
@@ -99,16 +99,16 @@
                 const currentScroll = window.pageYOffset;
                 
                 if (currentScroll > 100) {
-                    header.classList.add('kawaii-header-scrolled');
+                    header.classList.add('scrollable-scrolled');
                 } else {
-                    header.classList.remove('kawaii-header-scrolled');
+                    header.classList.remove('scrollable-scrolled');
                 }
                 
                 // Hide/show header on scroll
                 if (currentScroll > lastScroll && currentScroll > 200) {
-                    header.classList.add('kawaii-header-hidden');
+                    header.classList.add('scrollable-hidden');
                 } else {
-                    header.classList.remove('kawaii-header-hidden');
+                    header.classList.remove('scrollable-hidden');
                 }
                 
                 lastScroll = currentScroll;

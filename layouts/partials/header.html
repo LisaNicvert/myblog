@@ -1,76 +1,78 @@
-<header class="kawaii-header">
-    <nav class="kawaii-nav">
-        <div class="kawaii-nav-brand">
-            <a href="{{ .Site.BaseURL }}" class="kawaii-logo">
-                {{ if .Site.Params.logo }}
-                <img src="{{ .Site.Params.logo | relURL }}" alt="{{ .Site.Title }}" class="kawaii-logo-img">
-                {{ else }}
-                <span class="kawaii-logo-text">{{ .Site.Title | default "Kawaii" }}</span>
+<div class="scrollable">
+    <header class="kawaii-header">
+        <nav class="kawaii-nav">
+            <div class="kawaii-nav-brand">
+                <a href="{{ .Site.BaseURL }}" class="kawaii-logo">
+                    {{ if .Site.Params.logo }}
+                    <img src="{{ .Site.Params.logo | relURL }}" alt="{{ .Site.Title }}" class="kawaii-logo-img">
+                    {{ else }}
+                    <span class="kawaii-logo-text">{{ .Site.Title | default "Kawaii" }}</span>
+                    {{ end }}
+                </a>
+            </div>
+            
+            <div class="kawaii-nav-menu" id="kawaii-nav-menu">
+                {{ range .Site.Menus.main }}
+                <a href="{{ .URL | relURL }}" class="kawaii-nav-link {{ if $.IsMenuCurrent "main" . }}kawaii-nav-active{{ end }}">
+                    {{ .Name }}
+                </a>
                 {{ end }}
-            </a>
-        </div>
-        
-        <div class="kawaii-nav-menu" id="kawaii-nav-menu">
-            {{ range .Site.Menus.main }}
-            <a href="{{ .URL | relURL }}" class="kawaii-nav-link {{ if $.IsMenuCurrent "main" . }}kawaii-nav-active{{ end }}">
-                {{ .Name }}
-            </a>
-            {{ end }}
+                
+                {{ if not .Site.Menus.main }}
+                <a href="/" class="kawaii-nav-link {{ if .IsHome }}kawaii-nav-active{{ end }}">Home</a>
+                <a href="/posts" class="kawaii-nav-link {{ if eq .Section "posts" }}kawaii-nav-active{{ end }}">Posts</a>
+                <a href="/about" class="kawaii-nav-link {{ if eq .Title "About" }}kawaii-nav-active{{ end }}">About</a>
+                {{ end }}
+            </div>
             
-            {{ if not .Site.Menus.main }}
-            <a href="/" class="kawaii-nav-link {{ if .IsHome }}kawaii-nav-active{{ end }}">Home</a>
-            <a href="/posts" class="kawaii-nav-link {{ if eq .Section "posts" }}kawaii-nav-active{{ end }}">Posts</a>
-            <a href="/about" class="kawaii-nav-link {{ if eq .Title "About" }}kawaii-nav-active{{ end }}">About</a>
-            {{ end }}
-        </div>
-        
-        <div class="kawaii-nav-extras">
-            {{ if .Site.Params.search }}
-            <button class="kawaii-search-toggle" aria-label="Toggle search">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="m 5.55576 19.0065 c 0.05312 -0.03511 1.10875 -1.07358 2.34583 -2.30772 l 2.24925 -2.24389 l 0.281359 0.211662 c 1.43256 1.07769 3.3238 1.36765 5.02482 0.770381 c 1.56003 -0.547761 2.8169 -1.82387 3.33854 -3.38964 c 0.210363 -0.631433 0.255278 -0.936238 0.254478 -1.72696 C 19.0493 9.54619 19.0044 9.23496 18.808 8.64221 C 18.2838 7.05987 17.0518 5.79567 15.4961 5.24353 C 14.9149 5.03726 14.5367 4.96698 13.875 4.94224 C 12.6702 4.89721 11.6716 5.17376 10.6743 5.82865 C 10.2355 6.11676 9.59503 6.72921 9.29113 7.15128 C 7.89976 9.08373 7.91692 11.6848 9.33347 13.5678 l 0.211662 0.281359 l -2.24389 2.24925 c -1.23414 1.23709 -2.27261 2.29271 -2.30772 2.34584 c -0.035109 0.05312 -0.063835 0.164335 -0.063835 0.247145 c 0 0.305966 0.363267 0.488793 0.626074 0.315093 Z M 12.8699 14.8481 C 12.2429 14.7365 11.4776 14.4103 10.9725 14.0394 C 9.45862 12.9277 8.76614 11.0073 9.228 9.20141 C 9.60898 7.71179 10.7583 6.47683 12.219 5.98743 c 2.95238 -0.989139 6.03227 1.24003 6.03082 4.365 c -0.0012 2.56339 -2.20111 4.67036 -4.75493 4.55403 c -0.219787 -0.01001 -0.501037 -0.03626 -0.625 -0.05833 Z"></path>
-                </svg>
-            </button>
-            {{ end }}
-            
-            {{ if .Site.Params.theme_toggle }}
-            <button class="kawaii-theme-toggle" aria-label="Toggle theme">
-                <svg class="kawaii-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <circle cx="12" cy="12" r="5"></circle>
-                    <line x1="12" y1="1" x2="12" y2="3"></line>
-                    <line x1="12" y1="21" x2="12" y2="23"></line>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                    <line x1="1" y1="12" x2="3" y2="12"></line>
-                    <line x1="21" y1="12" x2="23" y2="12"></line>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                </svg>
-                <svg class="kawaii-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
-            </button>
-            {{ end }}
-            
-            <button class="kawaii-mobile-toggle" aria-label="Toggle mobile menu">
-                <span class="kawaii-hamburger"></span>
-                <span class="kawaii-hamburger"></span>
-                <span class="kawaii-hamburger"></span>
-            </button>
-        </div>
-    </nav>
-</header>
+            <div class="kawaii-nav-extras">
+                {{ if .Site.Params.search }}
+                <button class="kawaii-search-toggle" aria-label="Toggle search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="m 5.55576 19.0065 c 0.05312 -0.03511 1.10875 -1.07358 2.34583 -2.30772 l 2.24925 -2.24389 l 0.281359 0.211662 c 1.43256 1.07769 3.3238 1.36765 5.02482 0.770381 c 1.56003 -0.547761 2.8169 -1.82387 3.33854 -3.38964 c 0.210363 -0.631433 0.255278 -0.936238 0.254478 -1.72696 C 19.0493 9.54619 19.0044 9.23496 18.808 8.64221 C 18.2838 7.05987 17.0518 5.79567 15.4961 5.24353 C 14.9149 5.03726 14.5367 4.96698 13.875 4.94224 C 12.6702 4.89721 11.6716 5.17376 10.6743 5.82865 C 10.2355 6.11676 9.59503 6.72921 9.29113 7.15128 C 7.89976 9.08373 7.91692 11.6848 9.33347 13.5678 l 0.211662 0.281359 l -2.24389 2.24925 c -1.23414 1.23709 -2.27261 2.29271 -2.30772 2.34584 c -0.035109 0.05312 -0.063835 0.164335 -0.063835 0.247145 c 0 0.305966 0.363267 0.488793 0.626074 0.315093 Z M 12.8699 14.8481 C 12.2429 14.7365 11.4776 14.4103 10.9725 14.0394 C 9.45862 12.9277 8.76614 11.0073 9.228 9.20141 C 9.60898 7.71179 10.7583 6.47683 12.219 5.98743 c 2.95238 -0.989139 6.03227 1.24003 6.03082 4.365 c -0.0012 2.56339 -2.20111 4.67036 -4.75493 4.55403 c -0.219787 -0.01001 -0.501037 -0.03626 -0.625 -0.05833 Z"></path>
+                    </svg>
+                </button>
+                {{ end }}
+                
+                {{ if .Site.Params.theme_toggle }}
+                <button class="kawaii-theme-toggle" aria-label="Toggle theme">
+                    <svg class="kawaii-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="kawaii-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                {{ end }}
+                
+                <button class="kawaii-mobile-toggle" aria-label="Toggle mobile menu">
+                    <span class="kawaii-hamburger"></span>
+                    <span class="kawaii-hamburger"></span>
+                    <span class="kawaii-hamburger"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
 
-{{ if not .IsHome }}
-    <nav aria-label="breadcrumb" class="breadcrumb-full">
-        {{ range .Ancestors.Reverse }}
-            <a href="{{ .Permalink }}">{{ .Title }}</a>&nbsp;→&nbsp;
-        {{ end }}
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-    </nav>
-    <nav aria-label="breadcrumb" class="breadcrumb-short">
-        {{ with .Parent }}
-        ←&nbsp;<a href="{{ .Permalink }}">{{ .Title }}</a>
-        {{ end }}
-    </nav>
-{{ end }}
+    {{ if not .IsHome }}
+        <nav aria-label="breadcrumb" class="breadcrumb-full">
+            {{ range .Ancestors.Reverse }}
+                <a href="{{ .Permalink }}">{{ .Title }}</a>&nbsp;→&nbsp;
+            {{ end }}
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </nav>
+        <nav aria-label="breadcrumb" class="breadcrumb-short">
+            {{ with .Parent }}
+            ←&nbsp;<a href="{{ .Permalink }}">{{ .Title }}</a>
+            {{ end }}
+        </nav>
+    {{ end }}
+</div>
