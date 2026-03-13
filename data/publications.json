@@ -15,7 +15,7 @@
         "publisher": null,
         "doi": null,
         "url": "https://theses.hal.science/tel-04751639",
-        "pdf": "pdf/nicvert_statistical_2024.pdf"
+        "pdf": "/pdf/nicvert_statistical_2024.pdf"
       }
     ]
   },
@@ -35,7 +35,7 @@
         "publisher": "bioRxiv",
         "doi": "10.1101/2025.08.06.668908",
         "url": "https://www.biorxiv.org/content/10.1101/2025.08.06.668908v1",
-        "pdf": "pdf/beck_strategic_2025.pdf"
+        "pdf": "/pdf/beck_strategic_2025.pdf"
       }
     ]
   },
@@ -55,7 +55,7 @@
         "publisher": null,
         "doi": "10.1002/ecy.4237",
         "url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/ecy.4237",
-        "pdf": "pdf/nicvert_using_2024.pdf"
+        "pdf": "/pdf/nicvert_using_2024.pdf"
       },
       {
         "bibtexkey": "nicvert_trait_2025",
@@ -69,7 +69,7 @@
         "publisher": null,
         "doi": "10.24072/pcjournal.580",
         "url": "https://peercommunityjournal.org/articles/10.24072/pcjournal.580/",
-        "pdf": "pdf/nicvert_trait_2025.pdf"
+        "pdf": "/pdf/nicvert_trait_2025.pdf"
       }
     ]
   }

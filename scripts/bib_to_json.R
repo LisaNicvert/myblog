@@ -27,7 +27,7 @@ publications$TITLE <- gsub("[{}]", "", publications$TITLE)
 colnames(publications) <- tolower(colnames(publications))
 
 # Add pdf
-publications$pdf <- file.path("pdf", paste0(publications$bibtexkey, ".pdf"))
+publications$pdf <- file.path("/pdf", paste0(publications$bibtexkey, ".pdf"))
 
 # Add order attribute
 category_order <- c(1, 2, 3)
