@@ -6,7 +6,7 @@ source: https://github.com/LisaNicvert/camtrapviz
 featured_image: "images/software/camtrapviz-shinyapp.png"
 ---
 
-{{< img src="software/camtrapviz-shinyapp.png" alt="Overview of the{camtrapviz} interface" >}}
+<img src="/images/software/camtrapviz-shinyapp.png" alt="Overview of the{camtrapviz} interface">
 
 ### Aim
 [{camtrapviz}](https://lbbe-shiny.univ-lyon1.fr/camtrapviz/) is a R and Shiny package to visualize and summarize camera trap data. 
