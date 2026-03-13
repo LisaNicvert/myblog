@@ -6,7 +6,8 @@ source: https://github.com/LisaNicvert/camtrapviz
 featured_image: "images/software/camtrapviz-shinyapp.png"
 ---
 
-<img src="/images/software/camtrapviz-shinyapp.png" alt="Overview of the{camtrapviz} interface">
+<img src="/images/software/camtrapviz-shinyapp.png" alt="Overview of the {camtrapviz} interface">
+<figcaption>"Overview of the {camtrapviz} interface"</figcaption>
 
 ### Aim
 [{camtrapviz}](https://lbbe-shiny.univ-lyon1.fr/camtrapviz/) is a R and Shiny package to visualize and summarize camera trap data. 
@@ -32,8 +33,8 @@ can be reproduced (thanks to the {[shinymeta](https://rstudio.github.io/shinymet
 - One species: get activity and detection patterns for selected species
 
 
-{{< img class="light" src="software/camtrapviz-modules-light.png" alt="{camtrapviz} modules" loading="lazy" >}}
-{{< img class="dark" src="software/camtrapviz-modules-dark.png" alt="{camtrapviz} modules" loading="lazy" >}}
+<img class="light" src="/images/software/camtrapviz-modules-light.png" alt="{camtrapviz} modules" loading="lazy">
+<img class="dark" src="/images/software/camtrapviz-modules-dark.png" alt="{camtrapviz} modules" loading="lazy">
 <figcaption>Overview of the {camtrapviz} modules</figcaption>
 
 ### Resources

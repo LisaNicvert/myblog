@@ -3,8 +3,6 @@ title: "Occupancy models in R"
 description: "Infer occupancy with unmarked and stan"
 author: "Lisa Nicvert"
 date: "2026-01-06"
-image: ""
-draft: true
 bibliography: references.bib
 featured_image: "images/occupancy/bird.png"
 math: true
@@ -38,7 +36,7 @@ theme_update(
 
 It's not because we didn't see something that this thing wasn't present. At least, that's the idea behind occupancy models: our observations aren't a direct representation of reality, but merely of what we can detect.
 
-{{< img src="occupancy/bird.png" alt="An owl perched on a photographer's lens" >}}
+<img src="/images/occupancy/bird.png" alt="An owl perched on a photographer's lens" style="max-width: 80%; height: auto; margin:auto;">
 <figcaption>Present ($z_i = 1$), but not detected ($y_{ij} = 0$). <it>Photo by Caroline Kirk (<a href = "https://www.independent.co.uk/news/uk/wildlife-photographer-owl-camera-image-b1818585.html"> source</a>)</it></figcaption>
 
 Occupancy models were first published by @mackenzie2002 in the context of species occurrence modelling. Many extensions of occupancy have been proposed since, allowing to explicitly model occupancy dynamics [@mackenzie_estimating_2003], take into account multiple species [@rota_multispecies_2016] or a continuous detection process [@mackenzie_estimating_2003]. This blog post only goes over the original simple occupancy model.
