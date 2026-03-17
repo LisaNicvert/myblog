@@ -29,6 +29,9 @@ colnames(publications) <- tolower(colnames(publications))
 # Add pdf
 publications$pdf <- file.path("/pdf", paste0(publications$bibtexkey, ".pdf"))
 
+# Remove pdf under embargo
+publications$pdf[publications$bibtexkey == "nicvert_linking_2026"] <- NA
+
 # Add order attribute
 category_order <- c(1, 2, 3)
 names(category_order) <- c("Published articles", "Preprints", "PhD thesis")
