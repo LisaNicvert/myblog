@@ -7,7 +7,9 @@ date: "2020-01-01"
 project_end: 2024
 ---
 
-<img src="/images/projects/hawkes.jpg" style="width:80%;">
+<img src="/images/projects/hawkes.jpg">
+<figcaption>Greater kudu, impalas and lion (<a href="https://creativecommons.org/licenses/by/4.0" title="Creative Commons Attribution 4.0">CC BY 4.0</a>)</figcaption>
+
 </br>
 
 This project, completed during my PhD, aimed at inferring interactions between species from camera trap data. For this, I used a multivariate Hawkes process. This point process allows to derive interaction functions between species pairs, where the intensity of interaction is a function of the time elapsed since the first species' occurrence.

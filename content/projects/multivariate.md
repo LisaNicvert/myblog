@@ -7,7 +7,9 @@ date: "2020-01-01"
 project_end: "present"
 ---
 
-<img src="/images/projects/multivariate.jpg" style="width:80%;">
+<img src="/images/projects/multivariate.jpg">
+<figcaption> Birds and plants (birds: <i>Elaenia pallatangae</i>, <i>Anisognathus somptuosus</i>,  <i>Chlorochrysa calliparaea</i>, <i>Trogon personatus</i>; plants: <i>Ocotea sp.</i>, <i>Banara arguta</i>, <i>Ficus coerulescens</i>) (<a href="https://creativecommons.org/licenses/by/4.0" title="Creative Commons Attribution 4.0">CC BY 4.0</a>)</figcaption>
+
 </br>
 
 This project started during my PhD. It aims at better understanding rules structuring interactions networks, in particular trait matching. For this, we use methods from the correspondence analysis family.
