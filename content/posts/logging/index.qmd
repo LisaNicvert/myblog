@@ -2,8 +2,7 @@
 title: "Logging in R"
 description: "Tips and tricks using the {logger} package"
 author: "Lisa Nicvert"
-date: "2026-03-09"
-draft: true
+date: "2026-03-20"
 featured_image: "images/logger.jpg"
 tags: 
   - R
@@ -40,7 +39,7 @@ I find logging particularly useful to keep track of:
 
 ### When to log
 
-Logging is useful primarily for scripts that you don't monitor when they run (scripts that are long to run, or a series of short, but numerous numerous scripts).
+Logging is useful primarily for scripts that you don't monitor when they run, like scripts that are long to run, or a series of short, but numerous numerous scripts.
 
 ## Logging in base R
 
@@ -94,7 +93,7 @@ log_appender(appender = appender_file(file = logfile))
 log_threshold(DEBUG)
 ```
 
-Then, we can log messages with [logging functions](https://daroczig.github.io/logger/reference/log_level.html). Here, we use `log_debug` and `log_info` function to write to our logfile. Note that by default, {logger} uses the {glue} syntax to concatenate text and expressions (exemplified in `"res is {res}"`).
+Then, we can log messages with [logging functions](https://daroczig.github.io/logger/reference/log_level.html). Here, we use `log_debug` and `log_info` function to write to our logfile. Note that by default, {logger} uses the {glue} syntax to concatenate text and expressions (exemplified in `"res is {res}"`, where `{res}` is replaced with the variable value in the log).
 
 ```{r}
 # Write things to the logger
@@ -169,14 +168,19 @@ cat(readLines(logfile), sep = "\n")
 
 To record warnings, we need to use `log_warnings()`[^2]:
 
-[^2]: note that the chunk below is not run interactively, because Quarto doesn't work with `log_warnings()`.
+[^2]: note that the chunk below is not run interactively, because Quarto doesn't work with `log_warnings()`. That's also why I'm not writing to a tempfile here.
+
+```{r}
+#| include: false
+library(here)
+
+logfile <- here("content", "posts", "logging", "logfile.log")
+```
 
 ```{r}
 #| eval: false
-library(here)
 
-# Create a log file and a file connection
-logfile <- here("content", "posts", "logging", "logfile.log")
+# Create a file connection (assuming "logfile" is a valid path)
 log_appender(appender = appender_file(file = logfile))
 log_threshold(DEBUG)
 
@@ -190,6 +194,8 @@ log_info("res is {res}")
 res <- as.numeric(res)
 log_debug("End analyses")
 ```
+
+And now, our logger records the warnings.
 
 ```{r}
 #| echo: false
@@ -205,7 +211,7 @@ The same is true for errors and messages, which can be recorded with `log_messag
 
 ### Logging with parallel computing
 
-Another thing I find interesting with {logger} is that it's handy to keep track of what's happening in different parallel processes (see [this great blogpost](https://frbcesab.github.io/tips-and-tricks/posts/2025-01-28-parallel-computing-in-r/) for more explanations on parallel computing in R). Consider the parallel code below, which gives the number of species sightings:
+Another thing I find interesting with {logger} is that it's handy to keep track of what's happening in different parallel processes (see [this great blogpost](https://frbcesab.github.io/tips-and-tricks/posts/2025-01-28-parallel-computing-in-r/) for more explanations on parallel computing in R). Consider the parallel code below: starting from a list of species sightings, it computes the total number of sightings per species:
 
 ```{r parallel-1}
 #| message: false
@@ -222,16 +228,21 @@ registerDoParallel(cluster)
 # Generate dummy dataset of species sightings
 species_counts <- lapply(1:4, 
                          function(i) rbinom(10, size = 1, prob = 0.5))
-names(species_counts) <- c("dragonfly", "crow", "whale", "daisy")
+names(species_counts) <- c("Aeshna cyanea", "Anax imperator",
+                           "Calopteryx virgo", "Crocothemis erythraea")
 
 # Parallel loop
 res <- foreach(i = 1:4) %dopar% {
-    # Get number or species seen
-    res <- c(names(species_counts)[i], sum(species_counts[[i]]))
-    return(res)
+    # Get species name
+    sp <- names(species_counts)[i]
+    # Get total count
+    res <- sum(species_counts[[i]])
+    # Return values
+    return(paste(sp, res))
 }
 stopCluster(cluster)
 
+# print the total count per species
 res
 ```
 
@@ -248,21 +259,24 @@ clusterExport(cl = cluster,
 registerDoParallel(cluster)
 
 # Get temporary directory for logfiles
+# This ensures all logs are written to the same temp folder
 tmpdir <- tempdir()
 
 # Parallel loop
 res <- foreach(i = 1:4) %dopar% {
+    # Get species name
     sp <- names(species_counts)[i]
+
     # Create species logger
-    logfile <- tempfile(pattern = paste0(sp, "_"), 
-                        tmpdir = tmpdir, 
-                        fileext = ".log")
+    logfile <- file.path(tmpdir, paste0(sp, ".log"))
     log_appender(appender = appender_file(file = logfile))
-    # Compute and log sightings
+
+    # Get and log total count
     log_info("Logger for species {sp}")
     res <- sum(species_counts[[i]])
     log_info("Species count: {res}")
-    # Result
+
+    # Return values
     return(paste(sp, res))
 }
 stopCluster(cluster)
@@ -279,8 +293,9 @@ logfiles <- grep(paste(names(species_counts), collapse = "|"),
 
 # Show contents of the logfile
 for (log in logfiles) {
-    print(paste("Logger", basename(log), "-----"))
+    print(paste("File", basename(log), "-----"))
     cat(readLines(log), sep = "\n")
+    cat("\n")
 }
 ```
 
@@ -288,7 +303,8 @@ Amazing! Our outputs got copied to the files!
 
 ## Conclusion
 
-Logging is a great way to improve the reproducibility of analyses, and the {logger} packages can really make logging easy. This post showcased some applications of the package, including logging warnings and using it with parallel computing, but many other applications are possible!
+Logging is a great way to improve the reproducibility of analyses, and the {logger} packages can really make logging easy. This post showcased some applications of the package, including logging warnings and using it with parallel computing, but many other uses are possible: check out the resources below to learn more!
+
 
 ## Resources
 

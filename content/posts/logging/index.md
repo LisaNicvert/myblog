@@ -2,8 +2,7 @@
 title: Logging in R
 description: Tips and tricks using the {logger} package
 author: Lisa Nicvert
-date: '2026-03-09'
-draft: true
+date: '2026-03-20'
 featured_image: images/logger.jpg
 tags:
   - R
@@ -35,7 +34,7 @@ I find logging particularly useful to keep track of:
 
 ### When to log
 
-Logging is useful primarily for scripts that you don't monitor when they run (scripts that are long to run, or a series of short, but numerous numerous scripts).
+Logging is useful primarily for scripts that you don't monitor when they run, like scripts that are long to run, or a series of short, but numerous numerous scripts.
 
 ## Logging in base R
 
@@ -92,7 +91,7 @@ log_appender(appender = appender_file(file = logfile))
 log_threshold(DEBUG)
 ```
 
-Then, we can log messages with [logging functions](https://daroczig.github.io/logger/reference/log_level.html). Here, we use `log_debug` and `log_info` function to write to our logfile. Note that by default, {logger} uses the {glue} syntax to concatenate text and expressions (exemplified in `"res is {res}"`).
+Then, we can log messages with [logging functions](https://daroczig.github.io/logger/reference/log_level.html). Here, we use `log_debug` and `log_info` function to write to our logfile. Note that by default, {logger} uses the {glue} syntax to concatenate text and expressions (exemplified in `"res is {res}"`, where `{res}` is replaced with the variable value in the log).
 
 ``` r
 # Write things to the logger
@@ -104,9 +103,9 @@ log_debug("End analyses")
 
 Here is our logfile:
 
-    DEBUG [2026-03-13 16:00:59] Start script
-    INFO [2026-03-13 16:00:59] res is 42
-    DEBUG [2026-03-13 16:00:59] End analyses
+    DEBUG [2026-03-20 15:24:14] Start script
+    INFO [2026-03-20 15:24:14] res is 42
+    DEBUG [2026-03-20 15:24:14] End analyses
 
 That's it for a basic logger!
 
@@ -130,7 +129,7 @@ log_debug("End analyses")
 
 In the code above with a log level set to `INFO`, all `DEBUG` messages are omitted.
 
-    INFO [2026-03-13 16:00:59] res is 42
+    INFO [2026-03-20 15:24:15] res is 42
 
 ### Logging warnings, errors and messages
 
@@ -157,19 +156,16 @@ log_debug("End analyses")
 
 Now, the certainly the logfile should show the warning?
 
-    DEBUG [2026-03-13 16:00:59] Start script
-    INFO [2026-03-13 16:00:59] res is forty-two
-    DEBUG [2026-03-13 16:00:59] End analyses
+    DEBUG [2026-03-20 15:24:15] Start script
+    INFO [2026-03-20 15:24:15] res is forty-two
+    DEBUG [2026-03-20 15:24:15] End analyses
 
 ... except it doesn't. The logger records only what we tell it to, so we need to explicitly ask to record warnings.
 
 To record warnings, we need to use `log_warnings()`[^2]:
 
 ``` r
-library(here)
-
-# Create a log file and a file connection
-logfile <- here("content", "posts", "logging", "logfile.log")
+# Create a file connection (assuming "logfile" is a valid path)
 log_appender(appender = appender_file(file = logfile))
 log_threshold(DEBUG)
 
@@ -184,25 +180,18 @@ res <- as.numeric(res)
 log_debug("End analyses")
 ```
 
-    DEBUG [2026-03-10 11:54:57] Start script
-    INFO [2026-03-10 11:54:57] res is forty-two
-    WARN [2026-03-10 11:54:57] NAs introduced by coercion
-    DEBUG [2026-03-10 11:54:57] End analyses
-    DEBUG [2026-03-13 16:00:04] Start script
-    INFO [2026-03-13 16:00:04] res is forty-two
-    WARN [2026-03-13 16:00:04] NAs introduced by coercion
-    DEBUG [2026-03-13 16:00:04] End analyses
-    WARN [2026-03-13 16:00:37] Ignoring this call to log_warnings as it was registered previously.
-    DEBUG [2026-03-13 16:00:37] Start script
-    INFO [2026-03-13 16:00:37] res is forty-two
-    WARN [2026-03-13 16:00:37] NAs introduced by coercion
-    DEBUG [2026-03-13 16:00:37] End analyses
+And now, our logger records the warnings.
+
+    DEBUG [2026-03-20 15:09:53] Start script
+    INFO [2026-03-20 15:09:53] res is forty-two
+    WARN [2026-03-20 15:09:54] NAs introduced by coercion
+    DEBUG [2026-03-20 15:09:54] End analyses
 
 The same is true for errors and messages, which can be recorded with `log_messages()` and `log_errors()`.
 
 ### Logging with parallel computing
 
-Another thing I find interesting with {logger} is that it's handy to keep track of what's happening in different parallel processes (see [this great blogpost](https://frbcesab.github.io/tips-and-tricks/posts/2025-01-28-parallel-computing-in-r/) for more explanations on parallel computing in R). Consider the parallel code below, which gives the number of species sightings:
+Another thing I find interesting with {logger} is that it's handy to keep track of what's happening in different parallel processes (see [this great blogpost](https://frbcesab.github.io/tips-and-tricks/posts/2025-01-28-parallel-computing-in-r/) for more explanations on parallel computing in R). Consider the parallel code below: starting from a list of species sightings, it computes the total number of sightings per species:
 
 ``` r
 # Parallel computing libraries
@@ -218,30 +207,35 @@ registerDoParallel(cluster)
 # Generate dummy dataset of species sightings
 species_counts <- lapply(1:4, 
                          function(i) rbinom(10, size = 1, prob = 0.5))
-names(species_counts) <- c("dragonfly", "crow", "whale", "daisy")
+names(species_counts) <- c("Aeshna cyanea", "Anax imperator",
+                           "Calopteryx virgo", "Crocothemis erythraea")
 
 # Parallel loop
 res <- foreach(i = 1:4) %dopar% {
-    # Get number or species seen
-    res <- c(names(species_counts)[i], sum(species_counts[[i]]))
-    return(res)
+    # Get species name
+    sp <- names(species_counts)[i]
+    # Get total count
+    res <- sum(species_counts[[i]])
+    # Return values
+    return(paste(sp, res))
 }
 stopCluster(cluster)
 
+# print the total count per species
 res
 ```
 
     [[1]]
-    [1] "dragonfly" "8"        
+    [1] "Aeshna cyanea 8"
 
     [[2]]
-    [1] "crow" "5"   
+    [1] "Anax imperator 5"
 
     [[3]]
-    [1] "whale" "6"    
+    [1] "Calopteryx virgo 6"
 
     [[4]]
-    [1] "daisy" "6"    
+    [1] "Crocothemis erythraea 6"
 
 We can log parallel events by defining a logger in each parallel process:
 
@@ -255,21 +249,24 @@ clusterExport(cl = cluster,
 registerDoParallel(cluster)
 
 # Get temporary directory for logfiles
+# This ensures all logs are written to the same temp folder
 tmpdir <- tempdir()
 
 # Parallel loop
 res <- foreach(i = 1:4) %dopar% {
+    # Get species name
     sp <- names(species_counts)[i]
+
     # Create species logger
-    logfile <- tempfile(pattern = paste0(sp, "_"), 
-                        tmpdir = tmpdir, 
-                        fileext = ".log")
+    logfile <- file.path(tmpdir, paste0(sp, ".log"))
     log_appender(appender = appender_file(file = logfile))
-    # Compute and log sightings
+
+    # Get and log total count
     log_info("Logger for species {sp}")
     res <- sum(species_counts[[i]])
     log_info("Species count: {res}")
-    # Result
+
+    # Return values
     return(paste(sp, res))
 }
 stopCluster(cluster)
@@ -277,24 +274,27 @@ stopCluster(cluster)
 
 Let's see what's in the logfiles:
 
-    [1] "Logger crow_19464ff4be3.log -----"
-    INFO [2026-03-13 16:01:00] Logger for species crow
-    INFO [2026-03-13 16:01:00] Species count: 5
-    [1] "Logger daisy_2888b36753e.log -----"
-    INFO [2026-03-13 16:01:00] Logger for species daisy
-    INFO [2026-03-13 16:01:00] Species count: 6
-    [1] "Logger dragonfly_1164c8f1533.log -----"
-    INFO [2026-03-13 16:01:00] Logger for species dragonfly
-    INFO [2026-03-13 16:01:00] Species count: 8
-    [1] "Logger whale_2aac5b9c1c0c.log -----"
-    INFO [2026-03-13 16:01:00] Logger for species whale
-    INFO [2026-03-13 16:01:00] Species count: 6
+    [1] "File Aeshna cyanea.log -----"
+    INFO [2026-03-20 15:24:16] Logger for species Aeshna cyanea
+    INFO [2026-03-20 15:24:16] Species count: 8
+
+    [1] "File Anax imperator.log -----"
+    INFO [2026-03-20 15:24:16] Logger for species Anax imperator
+    INFO [2026-03-20 15:24:16] Species count: 5
+
+    [1] "File Calopteryx virgo.log -----"
+    INFO [2026-03-20 15:24:16] Logger for species Calopteryx virgo
+    INFO [2026-03-20 15:24:16] Species count: 6
+
+    [1] "File Crocothemis erythraea.log -----"
+    INFO [2026-03-20 15:24:16] Logger for species Crocothemis erythraea
+    INFO [2026-03-20 15:24:16] Species count: 6
 
 Amazing! Our outputs got copied to the files!
 
 ## Conclusion
 
-Logging is a great way to improve the reproducibility of analyses, and the {logger} packages can really make logging easy. This post showcased some applications of the package, including logging warnings and using it with parallel computing, but many other applications are possible!
+Logging is a great way to improve the reproducibility of analyses, and the {logger} packages can really make logging easy. This post showcased some applications of the package, including logging warnings and using it with parallel computing, but many other uses are possible: check out the resources below to learn more!
 
 ## Resources
 
@@ -303,4 +303,4 @@ Logging is a great way to improve the reproducibility of analyses, and the {logg
 
 [^1]: contrary to forestry, where it is the practice of cutting down trees.
 
-[^2]: note that the chunk below is not run interactively, because Quarto doesn't work with `log_warnings()`.
+[^2]: note that the chunk below is not run interactively, because Quarto doesn't work with `log_warnings()`. That's also why I'm not writing to a tempfile here.
