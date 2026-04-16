@@ -19,26 +19,6 @@
       }
     ]
   },
-  "Preprints": {
-    "name": "Preprints",
-    "order": 2,
-    "items": [
-      {
-        "bibtexkey": "beck_strategic_2025",
-        "title": "Strategic citations for a fairer academic landscape",
-        "author": "Beck Miriam, Annasawmy Pavanee, Birre Deborah, Busana Michela, Casajus Nicolas, Coux Camille, Marino Clara, Mouquet Nicolas, Nicvert Lisa, Oliveira Brunno F., Petit-Cailleux Cathleen, Tortosa Axelle, Unkule Mithila, Vagnon Chloé, Veytia Devi",
-        "year": 2025,
-        "journal": null,
-        "volume": null,
-        "number": null,
-        "pages": null,
-        "publisher": "bioRxiv",
-        "doi": "10.1101/2025.08.06.668908",
-        "url": "https://www.biorxiv.org/content/10.1101/2025.08.06.668908v1",
-        "pdf": "/pdf/beck_strategic_2025.pdf"
-      }
-    ]
-  },
   "Published articles": {
     "name": "Published articles",
     "order": 1,
@@ -84,6 +64,20 @@
         "doi": "10.1016/j.biocon.2026.111786",
         "url": null,
         "pdf": null
+      },
+      {
+        "bibtexkey": "beck_citation_2026",
+        "title": "Citation self-awareness for a fairer academic publishing landscape",
+        "author": "Beck Miriam, Annasawmy Pavanee, Birre Deborah, Busana Michela, Casajus Nicolas, Coux Camille, Marino Clara, Mouquet Nicolas, Nicvert Lisa, Oliveira Brunno F., Petit-Cailleux Cathleen, Tortosa Axelle, Unkule Mithila, Vagnon Chloé, Veytia Devi",
+        "year": 2026,
+        "journal": "BioScience",
+        "volume": null,
+        "number": null,
+        "pages": null,
+        "publisher": null,
+        "doi": "10.1093/biosci/biag028",
+        "url": "https://dx.doi.org/10.1093/biosci/biag028",
+        "pdf": "/pdf/beck_citation_2026.pdf"
       }
     ]
   }

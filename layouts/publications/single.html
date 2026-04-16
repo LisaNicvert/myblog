@@ -21,7 +21,7 @@
                             {{ end }}
                             {{ replaceRE `(Nicvert Lisa)` `<strong>$1</strong>` .author | safeHTML }} ({{ .year }}).
                             {{ if .journal }}
-                                {{ .journal }}, {{ .volume }}({{ .number }}){{ if .pages }}, {{ .pages }}{{ end }}.
+                                {{ .journal }}{{if .volume }}, {{ .volume }}{{ end }}{{ if .number }}({{ .number }}){{ end }}{{ if .pages }}, {{ .pages }}{{ end }}.
                             {{ else if .publisher }}
                                 {{ .publisher }}.
                             {{ end }}
